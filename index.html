@@ -182,6 +182,140 @@
   <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
     
+      <a class="post-link" href="/2024/12/18/%E6%8C%91%E6%88%98%E7%BB%83%E4%B9%A0/" aria-label=""></a>
+    
+    
+    <div class="post-cover-left">
+      
+        
+        
+          <img data-src="https://d-sketon.top/img/backimg/bg1.jpg" data-sizes="auto" alt="" class="lazyload">
+        
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2024-12-18</span>
+        <span><span class="icon-pencil"></span>124 words</span>
+        <span><span class="icon-clock"></span>1 min</span>
+      </div>
+      <h2 class="post-title"></h2>
+      <article class="post-article">
+        
+          
+
+
+机构
+节点
+所属群组
+P2P地址
+RPC监听地址
+Channel监听地址
+IP地址
+
+
+
+
+机构A
+节点0
+群组1,2,3
+30300
+20200
+8545
+192.168.1.1
+
+
+
+节点1
+群组1,2,3
+30301
+20201
+8546
+192.168.1.1
+
+
+机构B
+节点2
+群组1
+30302
+20202
+8547
+192.168.1.2
+
+
+
+节点3
+群组1
+30303
+20203
+8548
+192.168.1.2
+
+
+机构C
+节点4
+群组1,2
+30304
+20204
+8549
+192.168.1.3
+
+
+
+节点5
+群组1,2
+30305
+20205
+8550
+192.
+        
+      </article>
+    </div>
+  </div>
+  </div>
+
+
+  
+  
+  <div class="post-wrapper">
+  <div class="post-wrap-right" data-aos="fade-up">
+    
+      <a class="post-link" href="/2024/12/18/Webase-Front/" aria-label=""></a>
+    
+    
+    <div class="post-cover-right">
+      
+        
+        
+          <img data-src="https://d-sketon.top/img/backimg/bg1.jpg" data-sizes="auto" alt="" class="lazyload">
+        
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2024-12-18</span>
+        <span><span class="icon-pencil"></span>24 words</span>
+        <span><span class="icon-clock"></span>1 min</span>
+      </div>
+      <h2 class="post-title"></h2>
+      <article class="post-article">
+        
+           Webase-Front
+下载地址:
+1wget https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeBASE/releases/download/v3.1.1/webase-front.zip
+
+        
+      </article>
+    </div>
+  </div>
+  </div>
+
+
+  
+  
+  <div class="post-wrapper">
+  <div class="post-wrap-left" data-aos="fade-up">
+    
       <a class="post-link" href="/2024/11/27/SpringBootAndFisco/" aria-label="SpringBoot连接fisco"></a>
     
     
@@ -430,6 +564,88 @@ Spring Boot提供了@Controller和@RestController两种注解来标识此类负�
 
 
   
+  
+  <div class="post-wrapper">
+  <div class="post-wrap-right" data-aos="fade-up">
+    
+      <a class="post-link" href="/2024/09/26/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" aria-label="Ubuntu的疑难杂症"></a>
+    
+    
+    <div class="post-cover-right">
+      
+        <img data-src="https://i3.wp.com/tva1.sinaimg.cn/large/0072Vf1pgy1foxkjenkjaj31hc0u0dwt.jpg" data-sizes="auto" alt="Ubuntu的疑难杂症" class="lazyload">
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2024-09-26</span>
+        <span><span class="icon-pencil"></span>233 words</span>
+        <span><span class="icon-clock"></span>1 min</span>
+      </div>
+      <h2 class="post-title">Ubuntu的疑难杂症</h2>
+      <article class="post-article">
+        
+           ubuntu
+ ubuntu突然网络消失解决方法:
+ 1.修改NetworkManager配置
+sudo vi /etc/NetworkManager/NetworkManager.conf
+12[ifupdown]managed=true   #将false改成true
+ 2.删除原本配置，并重启服务
+123sudo service NetworkManager stopsudo rm /var/lib/NetworkManager/NetworkManager.statesudo service NetworkManager start
+ 端口占用解决方法
+查询端口
+1sudo lsof
+        
+      </article>
+    </div>
+  </div>
+  </div>
+
+
+  
+  
+  <div class="post-wrapper">
+  <div class="post-wrap-left" data-aos="fade-up">
+    
+      <a class="post-link" href="/2024/09/26/Webase/" aria-label="webase前置安装"></a>
+    
+    
+    <div class="post-cover-left">
+      
+        <img data-src="https://img1.baidu.com/it/u=4255809981,1367127287&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=807&amp;h=500" data-sizes="auto" alt="webase前置安装" class="lazyload">
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2024-09-26</span>
+        <span><span class="icon-pencil"></span>2.5k words</span>
+        <span><span class="icon-clock"></span>11 mins</span>
+      </div>
+      <h2 class="post-title">webase前置安装</h2>
+      <article class="post-article">
+        
+           安装mysql
+更新安装程序:
+1apt-get upgrade
+安装Mysql
+1apt-get install mysql-server
+开启mysql服务
+123service mysql startservice mysql statusnetstat -tap | grep mysql
+进入mysql界面
+1mysql -u root -p
+解决中文乱码:
+1vim /etc/mysql/mysql.conf.d/mysqld.cnf
+12character_set_server=utf-8#bind-address = 0.0.0.0  #设置远程访问
+设置mysql密码:
+12
+        
+      </article>
+    </div>
+  </div>
+  </div>
+
+
+  
 
 
 
@@ -447,7 +663,7 @@ Spring Boot提供了@Controller和@RestController两种注解来标识此类负�
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Posts</div>
-    <div class="sidebar-state-number">5</div>
+    <div class="sidebar-state-number">9</div>
   </div>
   <div class="sidebar-state-category">
     <div>Categories</div>
@@ -455,7 +671,7 @@ Spring Boot提供了@Controller和@RestController两种注解来标识此类负�
   </div>
   <div class="sidebar-state-tag">
     <div>Tags</div>
-    <div class="sidebar-state-number">8</div>
+    <div class="sidebar-state-number">10</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -520,10 +736,10 @@ Spring Boot提供了@Controller和@RestController两种注解来标识此类负�
     
       <div>
         <span class="icon-brush"></span>
-        2.6k
+        5.5k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        00:11
+        00:25
       </div>
     
     
@@ -557,7 +773,7 @@ Spring Boot提供了@Controller和@RestController两种注解来标识此类负�
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Posts</div>
-    <div class="sidebar-state-number">5</div>
+    <div class="sidebar-state-number">9</div>
   </div>
   <div class="sidebar-state-category">
     <div>Categories</div>
@@ -565,7 +781,7 @@ Spring Boot提供了@Controller和@RestController两种注解来标识此类负�
   </div>
   <div class="sidebar-state-tag">
     <div>Tags</div>
-    <div class="sidebar-state-number">8</div>
+    <div class="sidebar-state-number">10</div>
   </div>
 </div>
 <div class="sidebar-social">
