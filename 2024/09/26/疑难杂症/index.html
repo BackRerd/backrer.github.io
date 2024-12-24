@@ -9,7 +9,7 @@
     
     <title>
         
-            Ubuntu项目搭建 |
+            Ubuntu的疑难杂症 |
         
         笔记小站
     </title>
@@ -250,7 +250,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        Ubuntu项目搭建
+                        Ubuntu的疑难杂症
                     </div>
                 
 
@@ -284,7 +284,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Tue Dec 24 2024 13:13:16 GMT+0800">2024-12-24 13:13:16</span>
+                    <span class="datetime" data-updated="Mon Dec 23 2024 13:33:52 GMT+0800">2024-12-23 13:33:52</span>
                 </span>
             
         
@@ -295,10 +295,7 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/ubuntu/">ubuntu</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/webase/">webase</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/ubuntu-webase/">ubuntu,webase</a></li>
                         
                     
                 </ul>
@@ -323,41 +320,32 @@
                     
 
                     
-                         <p>安装前可以先更新一下apt的包源</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-update</span><br></pre></td></tr></table></figure>
-<h1 id="后端服务安装"><a class="markdownIt-Anchor" href="#后端服务安装"></a> 后端服务安装</h1>
-<h2 id="redis"><a class="markdownIt-Anchor" href="#redis"></a> Redis</h2>
-<p>安装前置</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install lsb-release curl gpg</span><br></pre></td></tr></table></figure>
-<p>安装redis</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install redis-server</span><br></pre></td></tr></table></figure>
-<p>启动redis服务,设置开启启动，查看redis服务状态</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl start redis-server</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> redis-server</span><br><span class="line"><span class="built_in">sudo</span> systemctl status redis-server</span><br></pre></td></tr></table></figure>
-<p>配置redis</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
-<p>配置文件详细:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bind 127.0.0.1 ::1 #redis绑定的ip地址</span><br><span class="line">port 6379 #redis监听端口</span><br><span class="line">daemonize yes #让redis在后台运行</span><br></pre></td></tr></table></figure>
-<h2 id="rabbitmq"><a class="markdownIt-Anchor" href="#rabbitmq"></a> RabbitMQ</h2>
-<p>安装,启动</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install rabbitmq-server</span><br><span class="line"><span class="built_in">sudo</span> systemctl start rabbitmq-server</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> rabbitmq-server</span><br></pre></td></tr></table></figure>
-<p>然后启用rabbitmq的web管理页面</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> rabbitmq-plugins <span class="built_in">enable</span> rabbitmq_management</span><br></pre></td></tr></table></figure>
-<p>添加一个admin账户</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> rabbitmqctl add_user admin admin</span><br><span class="line"><span class="built_in">sudo</span> rabbitmqctl set_user_tags admin administrator</span><br><span class="line"><span class="built_in">sudo</span> rabbitmqctl set_permissions -p / admin <span class="string">&quot;.*&quot;</span> <span class="string">&quot;.*&quot;</span> <span class="string">&quot;.*&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> rabbitmqctl set_user_tags admin administrator</span><br></pre></td></tr></table></figure>
-<p>重启rabbitmq服务应用更改</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart rabbitmq-server</span><br></pre></td></tr></table></figure>
-<p>rabbitmq网址:<code>http://localhost:15672</code></p>
-<h1 id="前端服务安装"><a class="markdownIt-Anchor" href="#前端服务安装"></a> 前端服务安装</h1>
-<h2 id="nodejsnpmvue"><a class="markdownIt-Anchor" href="#nodejsnpmvue"></a> nodejs+npm+vue</h2>
-<p>使用apt安装nodejs和npm</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install nodejs</span><br><span class="line"><span class="built_in">sudo</span> apt-get install npm</span><br></pre></td></tr></table></figure>
-<p>将npm的源设置为国内</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br><span class="line"><span class="comment">#安装vue</span></span><br><span class="line">npm install -g vue-cli</span><br></pre></td></tr></table></figure>
-<p>查看安装是否成功</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br><span class="line">vue -V</span><br></pre></td></tr></table></figure>
-<h1 id="后端与前端启动"><a class="markdownIt-Anchor" href="#后端与前端启动"></a> 后端与前端启动</h1>
-<p>编写sh脚本</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Minecraft服务器的jar文件路径</span></span><br><span class="line">SERVER_JAR=<span class="string">&quot;/path/to/your/server.jar&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 服务器的启动参数</span></span><br><span class="line">STARTUP_PARAMETERS=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查服务器jar文件是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ ! -f <span class="string">&quot;<span class="variable">$SERVER_JAR</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Server jar not found at <span class="variable">$SERVER_JAR</span>&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用java命令启动服务器</span></span><br><span class="line">java -Xmx1024M -Xms1024M -jar <span class="variable">$SERVER_JAR</span> <span class="variable">$STARTUP_PARAMETERS</span></span><br></pre></td></tr></table></figure>
+                         <h1 id="ubuntu"><a class="markdownIt-Anchor" href="#ubuntu"></a> ubuntu</h1>
+<h2 id="ubuntu突然网络消失解决方法"><a class="markdownIt-Anchor" href="#ubuntu突然网络消失解决方法"></a> ubuntu突然网络消失解决方法:</h2>
+<h3 id="1修改networkmanager配置"><a class="markdownIt-Anchor" href="#1修改networkmanager配置"></a> 1.修改NetworkManager配置</h3>
+<p>sudo vi /etc/NetworkManager/NetworkManager.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[ifupdown]</span><br><span class="line">managed=true   #将false改成true</span><br></pre></td></tr></table></figure>
+<h3 id="2删除原本配置并重启服务"><a class="markdownIt-Anchor" href="#2删除原本配置并重启服务"></a> 2.删除原本配置，并重启服务</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo service NetworkManager stop</span><br><span class="line">sudo rm /var/lib/NetworkManager/NetworkManager.state</span><br><span class="line">sudo service NetworkManager start</span><br></pre></td></tr></table></figure>
+<h2 id="端口占用解决方法"><a class="markdownIt-Anchor" href="#端口占用解决方法"></a> 端口占用解决方法</h2>
+<p>查询端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i :5000</span><br></pre></td></tr></table></figure>
+<p>杀死</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill 端口id</span><br></pre></td></tr></table></figure>
+<h1 id="webase"><a class="markdownIt-Anchor" href="#webase"></a> Webase</h1>
+<h3 id="停止后启动出现系统错误"><a class="markdownIt-Anchor" href="#停止后启动出现系统错误"></a> 停止后启动出现系统错误</h3>
+<p>目前方法:重启虚拟机</p>
+<h3 id="验证码无法查看"><a class="markdownIt-Anchor" href="#验证码无法查看"></a> 验证码无法查看:</h3>
+<p>编辑文件webase-node-mgr/conf里面的application.yml配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在url那栏最后边加上&amp;useSSL=false</span><br></pre></td></tr></table></figure>
+<h2 id="fisco配置控制台"><a class="markdownIt-Anchor" href="#fisco配置控制台"></a> fisco配置控制台</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp -n ~/fisco/console/conf/config-example.toml ~/fisco/console/conf/config.toml</span><br><span class="line">cp -r ~/fisco/nodes/127.0.0.1/sdk/* ~/fisco/console/conf/</span><br></pre></td></tr></table></figure>
+<h2 id="可视化部署失败的一些原因"><a class="markdownIt-Anchor" href="#可视化部署失败的一些原因"></a> 可视化部署失败的一些原因</h2>
+<p>1.虚拟机内存不足，增加内存即可完成。</p>
+<p>2.文件权限不足建议给满chmod 777 文件</p>
+<p>3.docker拉取hello-world失败手动拉取<code>docker pull hello-world</code></p>
+<h2 id="解决屏幕过小方法"><a class="markdownIt-Anchor" href="#解决屏幕过小方法"></a> 解决屏幕过小方法</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xrandr -s  1920x1080</span><br></pre></td></tr></table></figure>
 
                     
                 </div>
@@ -370,11 +358,7 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/ubuntu/">ubuntu</a>
-                                    </li>
-                                
-                                    <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/webase/">webase</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/ubuntu-webase/">ubuntu,webase</a>
                                     </li>
                                 
                             </ul>
@@ -393,14 +377,14 @@
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2024/09/26/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%871/"
-                                   title="Ubuntu的疑难杂症"
+                                   href="/2024/11/15/git/"
+                                   title="如何使用github仓库"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Ubuntu的疑难杂症</span>
+                                        <span class="post-nav-title-item text-ellipsis">如何使用github仓库</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -410,11 +394,11 @@
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/09/26/Webase/"
-                                   title="webase前置安装"
+                                   href="/2024/09/26/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%871/"
+                                   title="Ubuntu的疑难杂症"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">webase前置安装</span>
+                                        <span class="post-nav-title-item text-ellipsis">Ubuntu的疑难杂症</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
