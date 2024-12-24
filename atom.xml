@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-12-24T09:48:29.402Z</updated>
+  <updated>2024-12-24T11:02:45.491Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>前后端分离式部署</title>
     <link href="http://example.com/2024/12/24/%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%BD%AE%E6%90%AD%E5%BB%BA/"/>
     <id>http://example.com/2024/12/24/%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%BD%AE%E6%90%AD%E5%BB%BA/</id>
-    <published>2024-12-24T05:11:17.611Z</published>
-    <updated>2024-12-24T09:48:29.402Z</updated>
+    <published>2024-12-24T08:07:58.000Z</published>
+    <updated>2024-12-24T11:02:45.491Z</updated>
     
     
       
@@ -35,6 +35,14 @@
     
     
     
+    
+    <category term="ubuntu" scheme="http://example.com/tags/ubuntu/"/>
+    
+    <category term="vue" scheme="http://example.com/tags/vue/"/>
+    
+    <category term="fisco" scheme="http://example.com/tags/fisco/"/>
+    
+    <category term="webase" scheme="http://example.com/tags/webase/"/>
     
   </entry>
   
@@ -163,30 +171,6 @@
     <category term="git" scheme="http://example.com/tags/git/"/>
     
     <category term="其他" scheme="http://example.com/tags/%E5%85%B6%E4%BB%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu的疑难杂症</title>
-    <link href="http://example.com/2024/09/26/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
-    <id>http://example.com/2024/09/26/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</id>
-    <published>2024-09-26T08:07:58.000Z</published>
-    <updated>2024-12-23T05:33:52.730Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;ubuntu&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#ubuntu&quot;&gt;&lt;/a&gt; ubuntu&lt;/h1&gt;
-&lt;h2 id=&quot;ubuntu突然网络消失解决方法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="ubuntu,webase" scheme="http://example.com/tags/ubuntu-webase/"/>
     
   </entry>
   
