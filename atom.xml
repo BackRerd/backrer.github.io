@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-01-08T04:45:35.697Z</updated>
+  <updated>2025-01-14T11:25:49.388Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fisco-generator工具</title>
+    <link href="http://example.com/2025/01/14/fiscogenerator/"/>
+    <id>http://example.com/2025/01/14/fiscogenerator/</id>
+    <published>2025-01-14T10:12:01.000Z</published>
+    <updated>2025-01-14T11:25:49.388Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前置条件&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前置条件&quot;&gt;&lt;/a&gt; 前置条件:&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;机构&lt;/th&gt;
+&lt;th</summary>
+        
+      
+    
+    
+    
+    
+    <category term="fisco" scheme="http://example.com/tags/fisco/"/>
+    
+  </entry>
   
   <entry>
     <title>webase-front搭建方法</title>
