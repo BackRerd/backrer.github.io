@@ -9,7 +9,7 @@
     
     <title>
         
-            前后端分离式部署 |
+            fisco之多群组多节点 |
         
         笔记小站
     </title>
@@ -250,7 +250,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        前后端分离式部署
+                        fisco之多群组多节点
                     </div>
                 
 
@@ -278,13 +278,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-12-24 16:07:58</span>
+                <span class="datetime">2025-01-05 09:57:07</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Thu Dec 26 2024 20:21:31 GMT+0800">2024-12-26 20:21:31</span>
+                    <span class="datetime" data-updated="Wed Feb 05 2025 11:40:22 GMT+0800">2025-02-05 11:40:22</span>
                 </span>
             
         
@@ -295,16 +295,7 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/ubuntu/">ubuntu</a></li>
-                        
-                    
                             <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/fisco/">fisco</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/vue/">vue</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/webase/">webase</a></li>
                         
                     
                 </ul>
@@ -329,63 +320,198 @@
                     
 
                     
-                         <p>安装前可以先更新一下apt的包源</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-update</span><br></pre></td></tr></table></figure>
-<h1 id="后端服务安装"><a class="markdownIt-Anchor" href="#后端服务安装"></a> 后端服务安装</h1>
-<h2 id="redis"><a class="markdownIt-Anchor" href="#redis"></a> Redis</h2>
-<p>安装前置</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install lsb-release curl gpg</span><br></pre></td></tr></table></figure>
-<p>安装redis</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install redis-server</span><br></pre></td></tr></table></figure>
-<p>启动redis服务,设置开启启动，查看redis服务状态</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl start redis-server</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> redis-server</span><br><span class="line"><span class="built_in">sudo</span> systemctl status redis-server</span><br></pre></td></tr></table></figure>
-<p>配置redis</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
-<p>配置文件详细:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bind 127.0.0.1 ::1 #redis绑定的ip地址</span><br><span class="line">port 6379 #redis监听端口</span><br><span class="line">daemonize yes #让redis在后台运行</span><br></pre></td></tr></table></figure>
-<h2 id="rabbitmq"><a class="markdownIt-Anchor" href="#rabbitmq"></a> RabbitMQ</h2>
-<p>安装,启动</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install rabbitmq-server</span><br><span class="line"><span class="built_in">sudo</span> systemctl start rabbitmq-server</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> rabbitmq-server</span><br></pre></td></tr></table></figure>
-<p>然后启用rabbitmq的web管理页面</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> rabbitmq-plugins <span class="built_in">enable</span> rabbitmq_management</span><br></pre></td></tr></table></figure>
-<p>添加一个admin账户</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> rabbitmqctl add_user admin admin</span><br><span class="line"><span class="built_in">sudo</span> rabbitmqctl set_user_tags admin administrator</span><br><span class="line"><span class="built_in">sudo</span> rabbitmqctl set_permissions -p / admin <span class="string">&quot;.*&quot;</span> <span class="string">&quot;.*&quot;</span> <span class="string">&quot;.*&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> rabbitmqctl set_user_tags admin administrator</span><br></pre></td></tr></table></figure>
-<p>重启rabbitmq服务应用更改</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart rabbitmq-server</span><br></pre></td></tr></table></figure>
-<p>rabbitmq网址:<code>http://localhost:15672</code></p>
-<h2 id="jdk"><a class="markdownIt-Anchor" href="#jdk"></a> JDK</h2>
-<p>安装jdk17</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install software-properties-common</span><br><span class="line"><span class="built_in">sudo</span> add-apt-repository ppa:linuxuprising/java</span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install oracle-java17-installer</span><br></pre></td></tr></table></figure>
-<p>查找安装目录</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">readlink</span> -f $(<span class="built_in">which</span> java)</span><br></pre></td></tr></table></figure>
-<p>更新fisco到3.0版本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://fisco-bcos-doc.readthedocs.io/zh-cn/latest/docs/quick_start/air_installation.html</span><br></pre></td></tr></table></figure>
-<h1 id="前端服务安装"><a class="markdownIt-Anchor" href="#前端服务安装"></a> 前端服务安装</h1>
-<h2 id="nodejsnpmvue"><a class="markdownIt-Anchor" href="#nodejsnpmvue"></a> nodejs+npm+vue</h2>
-<p>使用apt安装nodejs和npm</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_16.x | <span class="built_in">sudo</span> -E bash -</span><br><span class="line"><span class="built_in">sudo</span> apt install -y nodejs</span><br></pre></td></tr></table></figure>
-<p>将npm的源设置为国内</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry http://registry.npm.taobao.org</span><br><span class="line"><span class="comment">#安装vue</span></span><br><span class="line">npm install -g vue-cli</span><br></pre></td></tr></table></figure>
-<p>查看安装是否成功</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br><span class="line">vue -V</span><br></pre></td></tr></table></figure>
-<p>解压front.zip文件，进入文件内输入</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="comment">#执行安装前置</span></span><br><span class="line">npm run dev <span class="comment">#启动前端</span></span><br></pre></td></tr></table></figure>
-<h1 id="后端与前端启动"><a class="markdownIt-Anchor" href="#后端与前端启动"></a> 后端与前端启动</h1>
-<p>复制区块链的密钥</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r nodes/127.0.0.1/sdk/* ./config/conf</span><br></pre></td></tr></table></figure>
-<p><code>/config/conf</code>用于存放密钥</p>
-<p>编辑配置文件</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ./config/application.yml</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq:</span><br><span class="line">  addresses: 127.0.0.1:5672 <span class="comment">#改为本地ip</span></span><br><span class="line">  username: admin  <span class="comment">#账号</span></span><br><span class="line">  password: admin  <span class="comment">#密码</span></span><br><span class="line">  virtual-host: /</span><br></pre></td></tr></table></figure>
-<p>编辑链接区块链的连接配置文件</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim config/config-fisco.toml</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[network]</span><br><span class="line">messageTimeout = <span class="string">&quot;10000&quot;</span></span><br><span class="line">defaultGroup = <span class="string">&quot;group0&quot;</span></span><br><span class="line">peers=[<span class="string">&quot;127.0.0.1:20201&quot;</span>]    <span class="comment"># The peer list to connect</span></span><br></pre></td></tr></table></figure>
-<p>编写sh脚本</p>
-<p>新建一个启动脚本文件:</p>
-<p>pwd</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> start.sh</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># jar文件路径</span></span><br><span class="line">SERVER_JAR=<span class="string">&quot;/path/to/your/server.jar&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 服务器的启动参数</span></span><br><span class="line">STARTUP_PARAMETERS=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查服务器jar文件是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ ! -f <span class="string">&quot;<span class="variable">$SERVER_JAR</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Server jar not found at <span class="variable">$SERVER_JAR</span>&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用java命令启动服务器</span></span><br><span class="line">java -Xmx1024M -Xms1024M -jar <span class="variable">$SERVER_JAR</span> <span class="variable">$STARTUP_PARAMETERS</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash start.sh <span class="comment">#启动脚本</span></span><br></pre></td></tr></table></figure>
+                         <h1 id="搭建一个4机构3群组8节点"><a class="markdownIt-Anchor" href="#搭建一个4机构3群组8节点"></a> 搭建一个4机构3群组8节点</h1>
+<p>此篇章是以官方为基础搭建的</p>
+<p>前置需求:</p>
+<table>
+<thead>
+<tr>
+<th>机构</th>
+<th>群组</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机构A(2节点) node0,1</td>
+<td>群组1,2,3</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>机构B(2节点) node2,3</td>
+<td>群组1</td>
+<td></td>
+</tr>
+<tr>
+<td>机构C(2节点) node4,5</td>
+<td>群组2</td>
+<td></td>
+</tr>
+<tr>
+<td>机构D(2节点) node6,7</td>
+<td>群组3</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>先将构建fisco的脚本下载下来</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -#LO https://github.com/FISCO-BCOS/FISCO-BCOS/releases/download/v2.11.0/build_chain.sh &amp;&amp; <span class="built_in">chmod</span> u+x build_chain.sh</span><br></pre></td></tr></table></figure>
+<p>创建一个配置文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ipconf</span><br></pre></td></tr></table></figure>
+<p>配置文件内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:2 A 1,2,3</span><br><span class="line">127.0.0.1:2 B 1</span><br><span class="line">127.0.0.1:2 C 2</span><br><span class="line">127.0.0.1:2 D 3</span><br></pre></td></tr></table></figure>
+<p>文件结构详解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IP:节点数量 机构名称 所在群组</span><br><span class="line">.... .... ....</span><br></pre></td></tr></table></figure>
+<p>使用命令一键创建</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash build_chain.sh -f ipconf -p 30300,20200,8545</span><br></pre></td></tr></table></figure>
+<p><code>-f</code>指定一个文件，这个文件编写的内容是创建信息</p>
+<p><img   src="https://s2.loli.net/2025/01/05/YEODv4SphVk2JAc.png"  alt="image.png" ></p>
+<p>启动所有节点</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash nodes/127.0.0.1/start_all.sh </span><br></pre></td></tr></table></figure>
+<p>查看节点进程</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep fisco-bcos</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/05/lS6kxMGV8BcyIL1.png"  alt="image.png" ></p>
+<p>查看所有群组的共识</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f nodes/127.0.0.1/node0/log/* | grep <span class="string">&quot;g.*++&quot;</span></span><br></pre></td></tr></table></figure>
+<p>查看单个群组共识</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f nodes/127.0.0.1/node0/log/* | grep <span class="string">&quot;g:1.*++&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>g:int</code>将int改成所要查询的群组</p>
+<p><code>node0</code>将node0也可以改成其他节点，查看其他节点的群组是否正常或者存在</p>
+<p><img   src="https://s2.loli.net/2025/01/05/4Df8x7nU3VWNvEs.png"  alt="image.png" ></p>
+<h1 id="扩容节点"><a class="markdownIt-Anchor" href="#扩容节点"></a> 扩容节点</h1>
+<h2 id="前置要求"><a class="markdownIt-Anchor" href="#前置要求"></a> 前置要求:</h2>
+<table>
+<thead>
+<tr>
+<th>节点</th>
+<th>群组</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机构D(1节点)</td>
+<td>3群组</td>
+<td>127.0.01</td>
+</tr>
+</tbody>
+</table>
+<p>获取证书的生成脚本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -#LO https://raw.githubusercontent.com/FISCO-BCOS/FISCO-BCOS/master-2.0/tools/gen_node_cert.sh</span><br></pre></td></tr></table></figure>
+<p>下载失败使用这个:<code>curl -#LO https://gitee.com/FISCO-BCOS/FISCO-BCOS/raw/master-2.0/tools/gen_node_cert.sh</code></p>
+<p>为新节点生成密钥</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash gen_node_cert.sh -c nodes/cert/D/ -o node8</span><br></pre></td></tr></table></figure>
+<p><code>-c</code>指定要在哪个机构下新增节点</p>
+<p><code>-o</code>新的节点名称</p>
+<p><img   src="https://s2.loli.net/2025/01/05/XlxrMCcSdJGh2jN.png"  alt="image.png" ></p>
+<p>拷贝所需要的配置文件(由于这里是在机构D新增的节点所以拷贝节点6和节点7都可以)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> nodes/127.0.0.1/node7/config.ini nodes/127.0.0.1/node7/start.sh nodes/127.0.0.1/node7/stop.sh node8/</span><br></pre></td></tr></table></figure>
+<p>这里是将配置文件启动文件都拷贝了过去</p>
+<p>编辑node8的配置文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim node8/config.ini</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[rpc]</span><br><span class="line">    channel_listen_ip=0.0.0.0</span><br><span class="line">    channel_listen_port=20208</span><br><span class="line">    jsonrpc_listen_ip=127.0.0.1</span><br><span class="line">    jsonrpc_listen_port=8553</span><br><span class="line">    disable_dynamic_group=<span class="literal">false</span></span><br><span class="line">[p2p]</span><br><span class="line">    listen_ip=0.0.0.0</span><br><span class="line">    listen_port=30308</span><br><span class="line">    ; nodes to connect</span><br><span class="line">    node.0=127.0.0.1:30300</span><br><span class="line">    node.1=127.0.0.1:30301</span><br><span class="line">    node.2=127.0.0.1:30302</span><br><span class="line">    node.3=127.0.0.1:30303</span><br><span class="line">    node.4=127.0.0.1:30304</span><br><span class="line">    node.5=127.0.0.1:30305</span><br><span class="line">    node.6=127.0.0.1:30306</span><br><span class="line">    node.7=127.0.0.1:30307</span><br><span class="line">    node.8=127.0.0.1:30308</span><br></pre></td></tr></table></figure>
+<p><code>p2p</code>加入自身的信息</p>
+<p><code>listen_port</code>端口自增一下，我这里拷贝的是node7所有自增一下就可以，如果拷贝的node6那就需要自增两下</p>
+<p><code>channel_listen_port</code>同上</p>
+<p><code>jsonrpc_listen_port</code>同上</p>
+<p>将群组的连接信息和配置文件拷贝进去</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> nodes/127.0.0.1/node7/conf/group.3.genesis nodes/127.0.0.1/node7/conf/group.3.ini node8/</span><br></pre></td></tr></table></figure>
+<p>先将新节点复制到当前的nodes文件下,然后启动节点</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r node8/ nodes/127.0.0.1/</span><br><span class="line">bash node8/start.sh</span><br></pre></td></tr></table></figure>
+<p>查看节点连接</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f nodes/127.0.0.1/node8/log/log*  | grep <span class="string">&quot;connected count&quot;</span></span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/05/RQMWcnpedYHg8K4.png"  alt="image.png" ></p>
+<h2 id="将节点添加到群组中"><a class="markdownIt-Anchor" href="#将节点添加到群组中"></a> 将节点添加到群组中</h2>
+<p>查看节点nodeid</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> nodes/127.0.0.1/node8/conf/node.nodeid</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/05/oLuTIpXvUgq27Mj.png"  alt="image.png" ></p>
+<p>进入控制台3群组</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash console/start.sh 3</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/05/7GorkeIRwU6EBFz.png"  alt="image.png" ></p>
+<p><code>addObserver</code>观察节,不参与共识，但能实时同步链上数据的节点。</p>
+<p><code>addSealer</code>共识节,参与共识的节点，拥有群组的所有数据（搭链时默认都生成共识节点）。</p>
+<p>这里需要共识所有添加到共识节点内</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addSealer 替换成自己节点的nodeid</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/05/kZaorvQ8DXe3WgI.png"  alt="image.png" ></p>
+<h1 id="新增群组"><a class="markdownIt-Anchor" href="#新增群组"></a> 新增群组</h1>
+<h2 id="前置需求"><a class="markdownIt-Anchor" href="#前置需求"></a> 前置需求</h2>
+<p>将node8节点添加至新增的群组中</p>
+<hr />
+<p>获取时间戳</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> $(($(date &#x27;+%s&#x27;)*<span class="number">1000</span>))</span><br></pre></td></tr></table></figure>
+<p>将时间戳记下来后开启控制台</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash console/start.sh</span><br></pre></td></tr></table></figure>
+<p>查看节点IP与Post端口号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getAvailableConnections</span><br></pre></td></tr></table></figure>
+<p>获取节点nodeid</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getSealerList</span><br></pre></td></tr></table></figure>
+<p>选择第一个nodeid</p>
+<p>为节点动态创建一个新群组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">generateGroup 127.0.0.1:20200 4 1736048077000 8b77bf44e79b207fcefe2d350ee4d9af0f45ef9425a7ce12cc61f6c87effc00c24dbbe5aa874179b9800584906b54b79a0f88ccda9f76c2b91058807a23985cf</span><br></pre></td></tr></table></figure>
+<p>命令详解: generateGroup 获取的IP和Post端口 新群组id 时间戳 节点nodei</p>
+<p><img   src="https://s2.loli.net/2025/01/05/Xxi4rWE936Rhngl.png"  alt="image.png" ></p>
+<p>启动新群组,切换新群组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">startGroup 127.0.0.1:20200 4</span><br><span class="line">switch 4</span><br></pre></td></tr></table></figure>
+<p>将node8节点添加到新群组中</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> nodes/127.0.0.1/node8/conf/node.nodeid <span class="comment">#获取节点id</span></span><br><span class="line">addSealer 8b77bf44e79b207fcefe2d350ee4d9af0f45ef9425a7ce12cc61f6c87effc00c24dbbe5aa874179b9800584906b54b79a0f88ccda9f76c2b91058807a23985cf</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/05/NEBevq6bY8lXGtK.png"  alt="image.png" ></p>
+<h1 id="结尾"><a class="markdownIt-Anchor" href="#结尾"></a> 结尾</h1>
+<p>小作业:</p>
+<p>1.创建四机构三群组10节点的区块链，详细要求如下:</p>
+<table>
+<thead>
+<tr>
+<th>机构</th>
+<th>群组</th>
+<th>节点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机构A(3节点)</td>
+<td>1,2,3</td>
+<td>node0,1,2</td>
+</tr>
+<tr>
+<td>机构B(1节点)</td>
+<td>1</td>
+<td>node3</td>
+</tr>
+<tr>
+<td>机构C(4节点)</td>
+<td>2</td>
+<td>node4,5,6,7</td>
+</tr>
+<tr>
+<td>机构D(2节点)</td>
+<td>1,3</td>
+<td>node8,9</td>
+</tr>
+</tbody>
+</table>
+<p>2.新增节点node10,node11,node12详细要求如下:</p>
+<table>
+<thead>
+<tr>
+<th>机构</th>
+<th>群组</th>
+<th>节点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机构A</td>
+<td>3</td>
+<td>node11</td>
+</tr>
+<tr>
+<td>机构B</td>
+<td>1</td>
+<td>node10,12</td>
+</tr>
+</tbody>
+</table>
+<p>3.新增群组4,并将node10,node11,node12添加至其中</p>
 
                     
                 </div>
@@ -398,19 +524,7 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/ubuntu/">ubuntu</a>
-                                    </li>
-                                
-                                    <li class="tag-item border-box">
                                         <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/fisco/">fisco</a>
-                                    </li>
-                                
-                                    <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/vue/">vue</a>
-                                    </li>
-                                
-                                    <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/webase/">webase</a>
                                     </li>
                                 
                             </ul>
@@ -429,14 +543,14 @@
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2025/01/05/fisco%E4%B9%8B%E5%A4%9A%E7%BE%A4%E7%BB%84%E5%A4%9A%E8%8A%82%E7%82%B9%E5%88%9B%E5%BB%BA/"
-                                   title="fisco之多群组多节点"
+                                   href="/2025/01/08/webase-front/"
+                                   title="webase-front搭建方法"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">fisco之多群组多节点</span>
+                                        <span class="post-nav-title-item text-ellipsis">webase-front搭建方法</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -446,11 +560,11 @@
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/11/27/SpringBootAndFisco/"
-                                   title="SpringBoot连接fisco"
+                                   href="/2024/12/24/%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%BD%AE%E6%90%AD%E5%BB%BA/"
+                                   title="前后端分离式部署"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">SpringBoot连接fisco</span>
+                                        <span class="post-nav-title-item text-ellipsis">前后端分离式部署</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
