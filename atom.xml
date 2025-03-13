@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-03-13T11:28:29.168Z</updated>
+  <updated>2025-03-13T11:32:10.184Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2025/01/14/fiscogenerator/"/>
     <id>http://example.com/2025/01/14/fiscogenerator/</id>
     <published>2025-01-14T10:12:01.000Z</published>
-    <updated>2025-03-13T11:28:29.168Z</updated>
+    <updated>2025-03-13T11:32:10.184Z</updated>
     
     
       
@@ -124,9 +124,9 @@
     
     
     
-    <category term="ubuntu" scheme="http://example.com/tags/ubuntu/"/>
-    
     <category term="fisco" scheme="http://example.com/tags/fisco/"/>
+    
+    <category term="ubuntu" scheme="http://example.com/tags/ubuntu/"/>
     
     <category term="vue" scheme="http://example.com/tags/vue/"/>
     
@@ -282,9 +282,9 @@
     
     
     
-    <category term="ubuntu" scheme="http://example.com/tags/ubuntu/"/>
-    
     <category term="fisco" scheme="http://example.com/tags/fisco/"/>
+    
+    <category term="ubuntu" scheme="http://example.com/tags/ubuntu/"/>
     
     <category term="webase" scheme="http://example.com/tags/webase/"/>
     
