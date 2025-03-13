@@ -284,7 +284,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Thu Mar 13 2025 19:32:10 GMT+0800">2025-03-13 19:32:10</span>
+                    <span class="datetime" data-updated="Thu Mar 13 2025 19:40:54 GMT+0800">2025-03-13 19:40:54</span>
                 </span>
             
         
@@ -400,7 +400,7 @@
 <p><code>./dir_chain_ca</code>生成的文件名称</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预输出效果如下</span></span><br><span class="line">root@backrer-virtual-machine:~/fisco/generator# ./generator --generate_chain_certificate ./dir_chain_ca</span><br><span class="line">INFO |  Chain cert begin.</span><br><span class="line">INFO |  Generate root cert success, <span class="built_in">dir</span> is /root/fisco/generator/dir_chain_ca</span><br><span class="line">INFO |  Chain cert end.</span><br></pre></td></tr></table></figure>
 <p>然后生成各个机构的证书及密钥,并复制到指定的机构目录下的meta中</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_agency_certificate ./dir_agency_ca ./dir_chain_ca agencya</span><br><span class="line">./generator --generate_agency_certificate ./dir_agency_ca ./dir_chain_ca agencyb</span><br><span class="line"><span class="built_in">cp</span> -r ./dir_agency_ca/agencya/* ../generator-a/meta/</span><br><span class="line"><span class="built_in">cp</span> -r ./dir_agency_ca/agencyb/* ../generator-b/meta/WS</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_agency_certificate ./dir_agency_ca ./dir_chain_ca agencya</span><br><span class="line">./generator --generate_agency_certificate ./dir_agency_ca ./dir_chain_ca agencyb</span><br><span class="line"><span class="built_in">cp</span> -r ./dir_agency_ca/agencya/* ../generator-a/meta/</span><br><span class="line"><span class="built_in">cp</span> -r ./dir_agency_ca/agencyb/* ../generator-b/meta/</span><br></pre></td></tr></table></figure>
 <p><code>--generate_agency_certificate</code>生成机构的密钥</p>
 <p><code>./dir_agency_ca</code>生成的文件位置</p>
 <p><code>./dir_chain_ca</code>区块链的唯一密钥</p>
