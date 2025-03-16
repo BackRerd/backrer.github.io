@@ -284,7 +284,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Sun Mar 16 2025 12:56:47 GMT+0800">2025-03-16 12:56:47</span>
+                    <span class="datetime" data-updated="Sun Mar 16 2025 16:24:20 GMT+0800">2025-03-16 16:24:20</span>
                 </span>
             
         
@@ -402,6 +402,10 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_agency_certificate ./agency_ca ./chain_ca agencya</span><br><span class="line">./generator --generate_agency_certificate ./agency_ca ./chain_ca agencyb</span><br></pre></td></tr></table></figure>
 <p>将当前生成的各个机构密钥，复制到各个机构目录下。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r ./agency_ca/agencya/* ../a/meta/</span><br><span class="line"><span class="built_in">cp</span> -r ./agency_ca/agencyb/* ../b/meta/</span><br></pre></td></tr></table></figure>
+<p>生成sdk连接密钥证书</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_sdk_certificate ./sdk_ca_a ./agency_ca/agencya/</span><br><span class="line">./generator --generate_sdk_certificate ./sdk_ca_b ./agency_ca/agencyb/</span><br></pre></td></tr></table></figure>
+<p>同理,将当前生成的各个机构sdk，复制到各个机构目录下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r sdk_ca_a/ ../a/</span><br><span class="line"><span class="built_in">cp</span> -r sdk_ca_b/ ../b/</span><br></pre></td></tr></table></figure>
 <p>7.接下来需要配置各个机构下的文件。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../a</span><br><span class="line">vim conf/node_deployment.ini</span><br></pre></td></tr></table></figure>
 <p>为机构a配置两个节点和对应的端口。</p>
@@ -440,12 +444,14 @@
 <p>看到以下节点信息，代表所有节点已经启动成功。</p>
 <p><img   src="https://s2.loli.net/2025/03/16/DF5R6fXMKVdhygA.png"  alt="image.png" ></p>
 <p>10.以上区块链搭建完成，但还需要可视化界面。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> xxx</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/BackRe/webase.git <span class="comment">#现在群里下</span></span><br></pre></td></tr></table></figure>
 <p>部署</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 deploy.py installAll</span><br></pre></td></tr></table></figure>
+<p>输出信息中如若包含re-download的都是选择n，其他的都是y</p>
 <p>启动</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 deploy.py startallAll</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 deploy.py startAll</span><br></pre></td></tr></table></figure>
 <p>报告项目经理按你下达的任务指令我以完成部署工作。</p>
+<p>所以我将我的区块链ip等信息交给项目经理。</p>
 
                     
                 </div>
@@ -473,6 +479,22 @@
 
                 
                     <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2025/03/16/solidity/"
+                                   title="智能合约工程师"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">智能合约工程师</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
                         
                         
                             <div class="next-post">

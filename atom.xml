@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-03-16T04:56:47.997Z</updated>
+  <updated>2025-03-16T07:03:04.616Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>智能合约工程师</title>
+    <link href="http://example.com/2025/03/16/solidity/"/>
+    <id>http://example.com/2025/03/16/solidity/</id>
+    <published>2025-03-16T06:28:16.000Z</published>
+    <updated>2025-03-16T07:03:04.616Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;项目经理下达任务书。&lt;/p&gt;
+&lt;p&gt;收到，根据项目经理经理下达的任务书我将进行区块链核心部分操作。&lt;/p&gt;
+&lt;p&gt;1.根据运维工程师部署的可视化界面，来编写智能合约。&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    
+    <category term="智能合约" scheme="http://example.com/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>运维工程师</title>
     <link href="http://example.com/2025/03/16/Operation/"/>
     <id>http://example.com/2025/03/16/Operation/</id>
     <published>2025-03-16T03:49:27.000Z</published>
-    <updated>2025-03-16T04:56:47.997Z</updated>
+    <updated>2025-03-16T08:24:20.703Z</updated>
     
     
       
