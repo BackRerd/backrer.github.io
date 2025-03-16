@@ -9,7 +9,7 @@
     
     <title>
         
-            fisco-generator2 |
+            运维工程师 |
         
         笔记小站
     </title>
@@ -250,7 +250,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        fisco-generator2
+                        运维工程师
                     </div>
                 
 
@@ -278,13 +278,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2025-03-15 19:12:15</span>
+                <span class="datetime">2025-03-16 11:49:27</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Sat Mar 15 2025 19:50:50 GMT+0800">2025-03-15 19:50:50</span>
+                    <span class="datetime" data-updated="Sun Mar 16 2025 12:56:47 GMT+0800">2025-03-16 12:56:47</span>
                 </span>
             
         
@@ -295,7 +295,7 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/fisco/">fisco</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%AE%9A%E7%A8%BF/">定稿</a></li>
                         
                     
                 </ul>
@@ -320,7 +320,7 @@
                     
 
                     
-                         <h1 id="前置条件"><a class="markdownIt-Anchor" href="#前置条件"></a> 前置条件:</h1>
+                         <p>所有人介绍项目以及口号，项目经理下发任务到运维工程师。已经向运维工程师下发了，任务书请查收。</p>
 <table>
 <thead>
 <tr>
@@ -330,7 +330,7 @@
 <th>P2P地址</th>
 <th>Channel监听地址</th>
 <th>json监听地址</th>
-<th>IP地址</th>
+<th style="text-align:left">IP地址</th>
 </tr>
 </thead>
 <tbody>
@@ -341,7 +341,7 @@
 <td>30300</td>
 <td>20200</td>
 <td>8545</td>
-<td>127.0.0.1</td>
+<td style="text-align:left">127.0.0.1</td>
 </tr>
 <tr>
 <td></td>
@@ -350,7 +350,7 @@
 <td>30301</td>
 <td>20201</td>
 <td>8546</td>
-<td>127.0.0.1</td>
+<td style="text-align:left">127.0.0.1</td>
 </tr>
 <tr>
 <td>机构B</td>
@@ -359,7 +359,7 @@
 <td>30302</td>
 <td>20202</td>
 <td>8547</td>
-<td>127.0.0.1</td>
+<td style="text-align:left">127.0.0.1</td>
 </tr>
 <tr>
 <td></td>
@@ -368,7 +368,7 @@
 <td>30303</td>
 <td>20203</td>
 <td>8548</td>
-<td>127.0.0.1</td>
+<td style="text-align:left">127.0.0.1</td>
 </tr>
 <tr>
 <td>机构C</td>
@@ -377,78 +377,75 @@
 <td>30304</td>
 <td>20204</td>
 <td>8549</td>
-<td>127.0.0.1</td>
+<td style="text-align:left">127.0.0.1</td>
 </tr>
 </tbody>
 </table>
-<p>下载工具Generator</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/FISCO-BCOS/generator.git <span class="comment">#使用这个</span></span><br></pre></td></tr></table></figure>
-<p>切进目录并进行安装</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> generator/</span><br><span class="line">./scripts/install.sh</span><br><span class="line"><span class="comment"># 测试是否安装成功</span></span><br><span class="line">./generator -h </span><br></pre></td></tr></table></figure>
-<p><img   src="https://s2.loli.net/2025/01/14/URS4lqVJjimCO8E.png"  alt="image.png" ></p>
-<p>下载并解压二进制文件</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/BackRe/resource.git</span><br><span class="line">tar -zxvf ./resource/fisco-bcos.tar.gz -C ./meta</span><br></pre></td></tr></table></figure>
-<p>查看fisco版本信息</p>
+<p>根据项目经理下发的任务书，我们来完成区块链部署的工作。</p>
+<p>1.从我们的服务器上下载区块链搭建工具(generator):</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/FISCO-BCOS/generator.git</span><br><span class="line"><span class="built_in">cd</span> ./generator</span><br></pre></td></tr></table></figure>
+<p>2.因为网络问题工具已经提前构建完成，所有我们先测试一下工具是否能使用。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator -h</span><br></pre></td></tr></table></figure>
+<p>3.根据上面显示的信息，可以知道工具可以正常使用。接下来我们需要完成区块链搭建的重要部分，获取区块链所使用的二进制文件。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/BackRe/resource.git</span><br></pre></td></tr></table></figure>
+<p>在获取完成后，需要将二进制文件解压到<code>./meta</code>目录下。meta目录相当于一个缓存文件，几乎所有的信息文件都会放在这里。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf ./resource/fisco-bcos.tar.gz -C ./meta</span><br></pre></td></tr></table></figure>
+<p>解压完成后，查询一下二进制文件的版本信息。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./meta/fisco-bcos -v</span><br></pre></td></tr></table></figure>
-<h1 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h1>
-<p>根据前置条件中可以看到需求是AB机构所以要将当前的文件复制成AB四份。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r generator/ generator-a</span><br><span class="line"><span class="built_in">cp</span> -r generator/ generator-b</span><br></pre></td></tr></table></figure>
-<p><img   src="https://s2.loli.net/2025/01/14/8zHqkDAj1rblKg6.png"  alt="image.png" ></p>
-<p>生成区块链的唯一密钥证书(在generator目录下生成)</p>
+<p>看到版本信息后代表文件正常解压成功。</p>
+<p>4.我们需要将工具文件复制成a,b机构，为后续的智能合约做准备。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cp</span> -r ./generator a</span><br><span class="line"><span class="built_in">cp</span> -r ./generator b</span><br><span class="line"><span class="built_in">cd</span> ./generator</span><br></pre></td></tr></table></figure>
+<p>5.在复制完成之后，需要生成机构的唯一密钥和证书。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_chain_certificate ./chain_ca</span><br></pre></td></tr></table></figure>
-<p><code>--generate_chain_certificate</code>生成区块链唯一的密钥相当于之前搭建中nodes/127.0.0.1/sdk内的内容</p>
-<p><code>./chain_ca</code>生成的文件名称</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预输出效果如下</span></span><br><span class="line">root@backrer-virtual-machine:~/fisco/generator# ./generator --generate_chain_certificate ./dir_chain_ca</span><br><span class="line">INFO |  Chain cert begin.</span><br><span class="line">INFO |  Generate root cert success, <span class="built_in">dir</span> is /root/fisco/generator/dir_chain_ca</span><br><span class="line">INFO |  Chain cert end.</span><br></pre></td></tr></table></figure>
-<p>然后生成各个机构的证书及密钥,并复制到指定的机构目录下的meta中</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_agency_certificate ./agency_ca ./chain_ca agencya</span><br><span class="line">./generator --generate_agency_certificate ./dgency_ca ./chain_ca agencyb</span><br><span class="line"><span class="built_in">cp</span> -r ./agency_ca/agencya/* ../generator-a/meta/</span><br><span class="line"><span class="built_in">cp</span> -r ./agency_ca/agencyb/* ../generator-b/meta/</span><br></pre></td></tr></table></figure>
-<p><code>--generate_agency_certificate</code>生成机构的密钥</p>
-<p><code>./agency_ca</code>生成的文件位置</p>
-<p><code>./chain_ca</code>区块链的唯一密钥</p>
-<p><code>agencyxx</code>机构名称</p>
-<h1 id="机构ab的准备工作"><a class="markdownIt-Anchor" href="#机构ab的准备工作"></a> 机构A,B的准备工作</h1>
-<h2 id="准备"><a class="markdownIt-Anchor" href="#准备"></a> 准备</h2>
-<p>切换到generatora目录中，编辑conf/node_deployment.ini</p>
-<p>根据提供的ip端口进行对应的修改</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[group]</span><br><span class="line">group_id=1</span><br><span class="line"></span><br><span class="line">[node0]</span><br><span class="line">; Host IP <span class="keyword">for</span> the communication among peers.</span><br><span class="line">; Please use your ssh login IP.</span><br><span class="line">p2p_ip=127.0.0.1</span><br><span class="line">; Listening IP <span class="keyword">for</span> the communication between SDK clients.</span><br><span class="line">; This IP is the same as p2p_ip <span class="keyword">for</span> the physical host.</span><br><span class="line">; But <span class="keyword">for</span> virtual host e.g., VPS servers, it is usually different from p2p_ip.</span><br><span class="line">; You can check accessible addresses of your network card.</span><br><span class="line">; Please see https://tecadmin.net/check-ip-address-ubuntu-18-04-desktop/</span><br><span class="line">; <span class="keyword">for</span> more instructions.</span><br><span class="line">rpc_ip=127.0.0.1</span><br><span class="line">channel_ip=0.0.0.0</span><br><span class="line">p2p_listen_port=30300</span><br><span class="line">channel_listen_port=20200</span><br><span class="line">jsonrpc_listen_port=8545</span><br><span class="line"></span><br><span class="line">[node1]</span><br><span class="line">p2p_ip=127.0.0.1</span><br><span class="line">rpc_ip=127.0.0.1</span><br><span class="line">channel_ip=0.0.0.0</span><br><span class="line">p2p_listen_port=30301</span><br><span class="line">channel_listen_port=20201</span><br><span class="line">jsonrpc_listen_port=8546</span><br></pre></td></tr></table></figure>
-<p>同理切换到generatorb,编辑conf/node_deployment.ini</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[group]</span><br><span class="line">group_id=1</span><br><span class="line"></span><br><span class="line">[node0]</span><br><span class="line">; Host IP <span class="keyword">for</span> the communication among peers.</span><br><span class="line">; Please use your ssh login IP.</span><br><span class="line">p2p_ip=127.0.0.1</span><br><span class="line">; Listening IP <span class="keyword">for</span> the communication between SDK clients.</span><br><span class="line">; This IP is the same as p2p_ip <span class="keyword">for</span> the physical host.</span><br><span class="line">; But <span class="keyword">for</span> virtual host e.g., VPS servers, it is usually different from p2p_ip.</span><br><span class="line">; You can check accessible addresses of your network card.</span><br><span class="line">; Please see https://tecadmin.net/check-ip-address-ubuntu-18-04-desktop/</span><br><span class="line">; <span class="keyword">for</span> more instructions.</span><br><span class="line">rpc_ip=127.0.0.1</span><br><span class="line">channel_ip=0.0.0.0</span><br><span class="line">p2p_listen_port=30302</span><br><span class="line">channel_listen_port=20202</span><br><span class="line">jsonrpc_listen_port=8547</span><br><span class="line"></span><br><span class="line">[node1]</span><br><span class="line">p2p_ip=127.0.0.1</span><br><span class="line">rpc_ip=127.0.0.1</span><br><span class="line">channel_ip=0.0.0.0</span><br><span class="line">p2p_listen_port=30303</span><br><span class="line">channel_listen_port=20203</span><br><span class="line">jsonrpc_listen_port=8548</span><br></pre></td></tr></table></figure>
-<p>生成机构A的节点证书和p2p连接信息文件(切换到generator-a)</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_all_certificates ./agencya_node_info</span><br><span class="line">ll agencya_node_info</span><br></pre></td></tr></table></figure>
-<p>将p2p连接信息文件复制到agency-b中</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> agencya_node_info/peers.txt  ../generator-b/meta/peersa.txt</span><br></pre></td></tr></table></figure>
-<p>同理生成机构B的节点证书和p2p连接信息文件(切换到generator-b)</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_all_certificates ./agencyb_node_info</span><br></pre></td></tr></table></figure>
-<p>将p2p连接信息文件复制到agency-a中</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> agencyb_node_info/peers.txt  ../generator-a/meta/peersb.txt</span><br></pre></td></tr></table></figure>
-<p>这里要注意一点，由于目前是要生成群组1需要创世区块，我们要将机构机构B中的两个cert文件拷贝到机构A的meta中。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r agencyb_node_info/cert_*  ../generator-a/meta/</span><br></pre></td></tr></table></figure>
-<p>切换到机构A中并编辑文件<code>conf/group_genesis.ini</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../generator-a/</span><br><span class="line">vim conf/group_genesis.ini</span><br></pre></td></tr></table></figure>
+<p>看到<code>Generate root cert success,dir is /root/fisco/generator/dir_chain_ca</code>信息，机构的<code>唯一</code>密钥生成完毕,并且知道密钥生成在<code>/root/fisco/generator/dir_chain_ca</code>。</p>
+<p>6.通过唯一密钥，我们需要生成各个机构的密钥。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_agency_certificate ./agency_ca ./chain_ca agencya</span><br><span class="line">./generator --generate_agency_certificate ./agency_ca ./chain_ca agencyb</span><br></pre></td></tr></table></figure>
+<p>将当前生成的各个机构密钥，复制到各个机构目录下。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r ./agency_ca/agencya/* ../a/meta/</span><br><span class="line"><span class="built_in">cp</span> -r ./agency_ca/agencyb/* ../b/meta/</span><br></pre></td></tr></table></figure>
+<p>7.接下来需要配置各个机构下的文件。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../a</span><br><span class="line">vim conf/node_deployment.ini</span><br></pre></td></tr></table></figure>
+<p>为机构a配置两个节点和对应的端口。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改以下信息</span></span><br><span class="line">p2p_listen_port=30300</span><br><span class="line">channel_listen_port=20200</span><br><span class="line">jsonrpc_listen_port=8545</span><br></pre></td></tr></table></figure>
+<p>b同理。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../b</span><br><span class="line">vim conf/node_deployment.ini</span><br></pre></td></tr></table></figure>
+<p>修改b的对应配置信息。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改以下信息</span></span><br><span class="line">p2p_listen_port=30302</span><br><span class="line">channel_listen_port=20202</span><br><span class="line">jsonrpc_listen_port=8547</span><br><span class="line"></span><br><span class="line">p2p_listen_port=30303</span><br><span class="line">channel_listen_port=20203</span><br><span class="line">jsonrpc_listen_port=8548</span><br></pre></td></tr></table></figure>
+<p>8.生成机构A的节点信息和p2p连接信息</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../a</span><br><span class="line">./generator --generate_all_certificates ./node_info</span><br></pre></td></tr></table></figure>
+<p>显示xxx信息表示节点信息和p2p连接信息生成成功。</p>
+<p>将机构a <code>p2p</code>文件复制到机构b的<code>meta</code>目录下。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../b</span><br><span class="line"><span class="built_in">cp</span> ../a/node_info/peers.txt ./meta/peersa.txt</span><br></pre></td></tr></table></figure>
+<p>同理将生成机构b的节点信息和p2p文件，然后再复制到机构a中。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_all_certificates ./node_info</span><br><span class="line"><span class="built_in">cp</span> ./node_info/peers.txt ../a/meta/peersb.txt</span><br></pre></td></tr></table></figure>
+<p>将机构b的节点信息复制到机构a的<code>meta</code>目录下。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> ./node_info/cert_* ../a/meta/</span><br></pre></td></tr></table></figure>
+<p>切回机构a中，配置群组文件。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../a</span><br><span class="line">vim ./conf/group_genesis.ini</span><br></pre></td></tr></table></figure>
+<p>根据文档配置对应的节点信息。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[group]</span><br><span class="line">group_id=1</span><br><span class="line"></span><br><span class="line">[nodes]</span><br><span class="line">node0=127.0.0.1:30300</span><br><span class="line">node1=127.0.0.1:30301</span><br><span class="line">node2=127.0.0.1:30302</span><br><span class="line">node3=127.0.0.1:30303</span><br></pre></td></tr></table></figure>
-<p><code>group_id</code>群组号</p>
-<p>根据前置要求表中配置好node的ip以及端口</p>
-<p>结合四个节点证书生成创世块.</p>
+<p>生成区块链中的第一个区块。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --create_group_genesis ./group</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@backrer-virtual-machine:~/fisco/generator-a# ./generator --create_group_genesis ./group</span><br><span class="line">INFO |  Build operation begin.</span><br><span class="line">INFO | generate ./group/group.1.genesis, successful</span><br><span class="line">INFO |  Build operation end.</span><br></pre></td></tr></table></figure>
-<p><img   src="https://s2.loli.net/2025/01/14/DYLCIBvdsoxkSO9.png"  alt="image.png" ></p>
-<p>将<code>group.1.genesis</code>文件复制到机构B中</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> group/group.1.genesis  ../generator-b/meta/</span><br></pre></td></tr></table></figure>
-<h2 id="生成机构a"><a class="markdownIt-Anchor" href="#生成机构a"></a> 生成机构A</h2>
-<p>在generator-a文件下</p>
-<p>使用<code>--build_install_package</code>生成机构的所有节点。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --build_install_package ./meta/peersb.txt ./nodea</span><br><span class="line">ll ./nodea</span><br></pre></td></tr></table></figure>
-<p><code>./meta/peersB.txt</code>放置群组内其他节点的连接信息</p>
-<p><code>./nodeA</code>节点文件的输出目录</p>
-<p>启动机构A的两个节点</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bash nodea/start_all.sh</span><br><span class="line"><span class="comment"># 查询启动状态</span></span><br><span class="line">ps -ef | grep fisco</span><br></pre></td></tr></table></figure>
-<p><img   src="https://s2.loli.net/2025/01/14/INfzacL68JdSmHW.png"  alt="image.png" ></p>
-<h2 id="生成机构b"><a class="markdownIt-Anchor" href="#生成机构b"></a> 生成机构B</h2>
-<p>切换到机构B</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../generator-b</span><br></pre></td></tr></table></figure>
-<p>生成机构B,并且启动</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./generator --build_install_package ./meta/peersa.txt ./nodeb</span><br><span class="line">bash nodeb/start_all.sh</span><br><span class="line"><span class="comment"># 查询启动状态</span></span><br><span class="line">ps -ef | grep fisco</span><br></pre></td></tr></table></figure>
-<p>查看群组1的共识情况</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f ./node*/node*/log/log*  | grep +++</span><br></pre></td></tr></table></figure>
+<p>看到<code>generate ./group/group.1.genesis, successful</code>信息表示生成成功。</p>
+<p>将第一个区块复制到机构b中</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r ./group/group.1.genesis ../b/meta/</span><br></pre></td></tr></table></figure>
+<p>9.现在生成机构a的节点。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --build_install_package ./meta/peersb.txt ./nodea</span><br></pre></td></tr></table></figure>
+<p>看到<code>Build operation end</code>表示节点生成完毕。</p>
+<p>启动机构a的所有节点,并查询启动状态</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash ./nodea/start_all.sh</span><br><span class="line">ps -ef | grep fisco</span><br></pre></td></tr></table></figure>
+<p>看到以下有节点信息，代表启动正常。</p>
+<p><img   src="https://s2.loli.net/2025/03/16/ZEheYOJPksFplvH.png"  alt="image.png" ></p>
+<p>同理生成机构b的节点,并启动查看。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../b</span><br><span class="line">./generator --build_install_package ./meta/peersa.txt ./nodeb</span><br><span class="line">bash ./nodeb/start_all.sh</span><br><span class="line">ps -ef | grep fisco</span><br></pre></td></tr></table></figure>
+<p>看到以下节点信息，代表所有节点已经启动成功。</p>
+<p><img   src="https://s2.loli.net/2025/03/16/DF5R6fXMKVdhygA.png"  alt="image.png" ></p>
+<p>10.以上区块链搭建完成，但还需要可视化界面。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> xxx</span><br></pre></td></tr></table></figure>
+<p>部署</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 deploy.py installAll</span><br></pre></td></tr></table></figure>
+<p>启动</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 deploy.py startallAll</span><br></pre></td></tr></table></figure>
+<p>报告项目经理按你下达的任务指令我以完成部署工作。</p>
 
                     
                 </div>
@@ -461,7 +458,7 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/fisco/">fisco</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%AE%9A%E7%A8%BF/">定稿</a>
                                     </li>
                                 
                             </ul>
@@ -477,31 +474,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2025/03/16/Operation/"
-                                   title="运维工程师"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">运维工程师</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2025/01/14/fiscogenerator/"
-                                   title="fisco-generator工具"
+                                   href="/2025/03/15/fisco-generator2/"
+                                   title="fisco-generator2"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">fisco-generator工具</span>
+                                        <span class="post-nav-title-item text-ellipsis">fisco-generator2</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
