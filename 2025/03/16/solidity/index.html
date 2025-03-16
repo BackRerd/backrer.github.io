@@ -284,7 +284,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Sun Mar 16 2025 15:03:04 GMT+0800">2025-03-16 15:03:04</span>
+                    <span class="datetime" data-updated="Sun Mar 16 2025 18:43:41 GMT+0800">2025-03-16 18:43:41</span>
                 </span>
             
         
@@ -324,6 +324,21 @@
 <p>收到，根据项目经理经理下达的任务书我将进行区块链核心部分操作。</p>
 <p>1.根据运维工程师部署的可视化界面，来编写智能合约。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:5000/  <span class="comment">#webase界面，ip根据实际情况修改</span></span><br></pre></td></tr></table></figure>
+<p>2.智能合约代码编写</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.25;</span><br><span class="line"></span><br><span class="line">// 用户存储合约</span><br><span class="line">contract UserStorage &#123;</span><br><span class="line">    // 用户结构体，存储哈希密码和用户是否存在的标识</span><br><span class="line">    struct User &#123;</span><br><span class="line">        bytes32 passwordHash; // 存储密码的哈希值，避免明文存储，提高安全性</span><br><span class="line">        bool exists; // 标识用户是否已注册</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 使用映射存储用户名对应的用户信息</span><br><span class="line">    mapping(string =&gt; User) private users;</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     * @dev 存储用户密码（哈希化）</span><br><span class="line">     * @param _username 用户名</span><br><span class="line">     * @param _password 明文密码（将被哈希存储）</span><br><span class="line">     */</span><br><span class="line">    function storePassword(string _username, string _password) public &#123;</span><br><span class="line">        require(!users[_username].exists, &quot;User already registered.&quot;); // 确保用户未注册</span><br><span class="line">        users[_username] = User(keccak256(abi.encodePacked(_password)), true); // 存储哈希密码</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     * @dev 验证用户密码是否正确</span><br><span class="line">     * @param _username 用户名</span><br><span class="line">     * @param _password 用户输入的明文密码</span><br><span class="line">     * @return 是否验证成功（true: 密码匹配, false: 密码错误）</span><br><span class="line">     */</span><br><span class="line">    function verifyPassword(string _username, string _password) public view returns (bool) &#123;</span><br><span class="line">        require(users[_username].exists, &quot;User not registered.&quot;); // 确保用户已注册</span><br><span class="line">        return users[_username].passwordHash == keccak256(abi.encodePacked(_password)); // 校验密码哈希值</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.安装区块链控制台</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span></span><br><span class="line"><span class="built_in">cd</span> ./generator</span><br><span class="line">tar -zxvf ./resource/console.tar.gz -C ./</span><br></pre></td></tr></table></figure>
+<p>将sdk密钥证书复制到控制台的<code>conf</code>中,并且初始化config.toml文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> ./sdk_ca_a/sdk/* ./console/conf/</span><br><span class="line"><span class="built_in">cp</span> -r ./console/conf/config-example.toml ./console/conf/config.toml</span><br></pre></td></tr></table></figure>
+<p>启动控制台</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./console/start.sh</span><br></pre></td></tr></table></figure>
+<p>查询当前块的高度,退出控制台</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getBlockNumber</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+<p>进入控制台文件夹下,并生成与前后端连接的代码</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ./console</span><br><span class="line">bash sol2java.sh -p site.backrer.fisco</span><br></pre></td></tr></table></figure>
+<p>出现<code>success</code>代表代码生成成功。</p>
+<p>报告项目经理按你下达的任务指令我以完成部署工作。</p>
+<p>我将把连接信息交给你项目经理。</p>
 
                     
                 </div>
