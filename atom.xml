@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-03-23T03:58:31.558Z</updated>
+  <updated>2025-03-23T07:47:57.035Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://example.com/2025/03/23/web/"/>
     <id>http://example.com/2025/03/23/web/</id>
     <published>2025-03-23T03:32:34.000Z</published>
-    <updated>2025-03-23T03:58:31.558Z</updated>
+    <updated>2025-03-23T07:47:57.035Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;根据智能合约工程师编写的代码，我需要完成注册登陆以及区块链的链接。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;根据任务书，我需要完成注册登陆以及区块链的链接。&lt;/p&gt;
 &lt;p&gt;首先将首页面制作出。&lt;/p&gt;
 &lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
         
@@ -235,9 +235,9 @@
     
     <category term="fisco" scheme="http://example.com/tags/fisco/"/>
     
-    <category term="webase" scheme="http://example.com/tags/webase/"/>
-    
     <category term="vue" scheme="http://example.com/tags/vue/"/>
+    
+    <category term="webase" scheme="http://example.com/tags/webase/"/>
     
   </entry>
   
