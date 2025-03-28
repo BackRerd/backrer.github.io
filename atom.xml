@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-03-24T23:14:37.739Z</updated>
+  <updated>2025-03-28T04:04:11.348Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,59 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>智能合约工程师任务书</title>
+    <link href="http://example.com/2025/03/28/%E6%80%BB%E8%A7%88%E4%BB%BB%E5%8A%A1%E4%B9%A6/"/>
+    <id>http://example.com/2025/03/28/%E6%80%BB%E8%A7%88%E4%BB%BB%E5%8A%A1%E4%B9%A6/</id>
+    <published>2025-03-28T03:32:34.000Z</published>
+    <updated>2025-03-28T04:04:11.348Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;区块链捐赠系统联合开发总任务书&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#区块链捐赠系统联合开发总任务书&quot;&gt;&lt;/a&gt; 区块链捐赠系统联合开发总任务书&lt;/h1&gt;
+&lt;h2 id=&quot;项目目标&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="任务书" scheme="http://example.com/tags/%E4%BB%BB%E5%8A%A1%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>智能合约工程师任务书</title>
+    <link href="http://example.com/2025/03/28/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/"/>
+    <id>http://example.com/2025/03/28/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/</id>
+    <published>2025-03-28T03:32:34.000Z</published>
+    <updated>2025-03-28T03:16:08.112Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;测试报告&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    
+    <category term="任务书" scheme="http://example.com/tags/%E4%BB%BB%E5%8A%A1%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>应用开发工程师任务书</title>
     <link href="http://example.com/2025/03/25/%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E4%BB%BB%E5%8A%A1%E4%B9%A6/"/>
     <id>http://example.com/2025/03/25/%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E4%BB%BB%E5%8A%A1%E4%B9%A6/</id>
     <published>2025-03-25T03:32:34.000Z</published>
-    <updated>2025-03-24T23:14:37.739Z</updated>
+    <updated>2025-03-28T03:18:43.078Z</updated>
     
     
       
@@ -93,7 +141,7 @@
     <link href="http://example.com/2025/03/23/web/"/>
     <id>http://example.com/2025/03/23/web/</id>
     <published>2025-03-23T03:32:34.000Z</published>
-    <updated>2025-03-23T08:14:55.726Z</updated>
+    <updated>2025-03-28T03:18:24.843Z</updated>
     
     
       
@@ -303,9 +351,9 @@
     
     
     
-    <category term="fisco" scheme="http://example.com/tags/fisco/"/>
-    
     <category term="ubuntu" scheme="http://example.com/tags/ubuntu/"/>
+    
+    <category term="fisco" scheme="http://example.com/tags/fisco/"/>
     
     <category term="vue" scheme="http://example.com/tags/vue/"/>
     
@@ -461,9 +509,9 @@
     
     
     
-    <category term="fisco" scheme="http://example.com/tags/fisco/"/>
-    
     <category term="ubuntu" scheme="http://example.com/tags/ubuntu/"/>
+    
+    <category term="fisco" scheme="http://example.com/tags/fisco/"/>
     
     <category term="webase" scheme="http://example.com/tags/webase/"/>
     
