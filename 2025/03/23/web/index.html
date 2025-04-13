@@ -284,7 +284,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Fri Mar 28 2025 11:18:24 GMT+0800">2025-03-28 11:18:24</span>
+                    <span class="datetime" data-updated="Sun Apr 13 2025 08:59:07 GMT+0800">2025-04-13 08:59:07</span>
                 </span>
             
         
@@ -342,6 +342,9 @@
 <p>Manager.vue</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-menu-item index=&quot;/manager/studentFeedback&quot; v-if=&quot;data.user.role === &#x27;STUDENT&#x27;&quot;&gt;</span><br><span class="line">            &lt;el-icon&gt;&lt;ChatLineRound /&gt;&lt;/el-icon&gt;</span><br><span class="line">            &lt;span&gt;用户反馈&lt;/span&gt;</span><br><span class="line">          &lt;/el-menu-item&gt;</span><br></pre></td></tr></table></figure>
 <p>新增捐赠类型，使用管理员账号进行添加新的类型</p>
+<p>新增AI帮助回复功能,通过最新的开源大模型DeepseakR1-671B自行训练的蒸馏模型API进行对接(/deepseek/chat/{msg})。</p>
+<p>Manger.vue</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> res = <span class="keyword">await</span> request.<span class="title function_">get</span>(<span class="string">`/chat/send/<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(username)&#125;</span>/<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(newMessage.value)&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
 
                     
                 </div>

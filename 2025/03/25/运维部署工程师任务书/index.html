@@ -284,7 +284,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Tue Mar 25 2025 07:14:30 GMT+0800">2025-03-25 07:14:30</span>
+                    <span class="datetime" data-updated="Sun Mar 30 2025 16:51:34 GMT+0800">2025-03-30 16:51:34</span>
                 </span>
             
         
@@ -325,7 +325,7 @@
 <p>完成多机构联盟链网络搭建，部署Webase可视化平台，确保节点跨群组互通与智能合约部署环境就绪</p>
 <hr />
 <h2 id="核心任务清单"><a class="markdownIt-Anchor" href="#核心任务清单"></a> 核心任务清单</h2>
-<h3 id="一-基础设施部署"><a class="markdownIt-Anchor" href="#一-基础设施部署"></a> 一、基础设施部署</h3>
+<h3 id="任务一-基础设施部署"><a class="markdownIt-Anchor" href="#任务一-基础设施部署"></a> 任务一、基础设施部署</h3>
 <ol>
 <li>
 <p><strong>工具链准备</strong></p>
@@ -376,7 +376,7 @@
 <td>8548</td>
 </tr>
 <tr>
-<td>机构C</td>
+<td>机构C(后续拓展节点)</td>
 <td>节点0(4)</td>
 <td>群组2</td>
 <td>30304</td>
@@ -386,11 +386,11 @@
 </table>
 </li>
 </ol>
-<h3 id="二-证书体系建设"><a class="markdownIt-Anchor" href="#二-证书体系建设"></a> 二、证书体系建设</h3>
+<h3 id="任务二-证书体系建设"><a class="markdownIt-Anchor" href="#任务二-证书体系建设"></a> 任务二、证书体系建设</h3>
 <p>▸ 生成根证书链（<code>chain_ca</code>目录）<br />
 ▸ 签发机构A/B的二级证书（<code>agency_ca</code>目录）<br />
 ▸ 部署SDK通信证书至各机构目录</p>
-<h3 id="三-节点部署实施"><a class="markdownIt-Anchor" href="#三-节点部署实施"></a> 三、节点部署实施</h3>
+<h3 id="任务三-节点部署实施"><a class="markdownIt-Anchor" href="#任务三-节点部署实施"></a> 任务三、节点部署实施</h3>
 <ol>
 <li>
 <p><strong>配置文件管理</strong></p>
@@ -407,13 +407,13 @@
 </ul>
 </li>
 </ol>
-<h3 id="四-可视化平台部署"><a class="markdownIt-Anchor" href="#四-可视化平台部署"></a> 四、可视化平台部署</h3>
+<h3 id="任务四-可视化平台部署"><a class="markdownIt-Anchor" href="#任务四-可视化平台部署"></a> 任务四、可视化平台部署</h3>
 <ul>
 <li>部署 Webase 套件（管理地址：<code>http://&#123;服务器IP&#125;:5000</code>）</li>
 <li>完成节点接入配置与网络连通性测试</li>
 </ul>
 <hr />
-<h2 id="交付物要求"><a class="markdownIt-Anchor" href="#交付物要求"></a> 交付物要求</h2>
+<h2 id="总结-交付物要求"><a class="markdownIt-Anchor" href="#总结-交付物要求"></a> 总结、交付物要求</h2>
 <ol>
 <li>区块链节点部署拓扑图（含端口映射关系）</li>
 <li>证书体系架构文档（含证书目录树截图）</li>
@@ -421,7 +421,7 @@
 <li>Webase平台访问地址及测试账号</li>
 </ol>
 <hr />
-<h2 id="关键检查点"><a class="markdownIt-Anchor" href="#关键检查点"></a> 关键检查点</h2>
+<h2 id="注意-关键检查点"><a class="markdownIt-Anchor" href="#注意-关键检查点"></a> 注意、关键检查点</h2>
 <p>⚠️ <strong>端口冲突检测</strong>：确认30300-30304/8545-8549端口无占用<br />
 ⚠️ <strong>证书同步机制</strong>：确保peers.txt在机构间双向同步<br />
 ⚠️ <strong>群组一致性</strong>：验证群组1包含机构A/B节点，群组2包含机构A/C节点</p>

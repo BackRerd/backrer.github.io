@@ -284,7 +284,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Fri Mar 28 2025 11:18:43 GMT+0800">2025-03-28 11:18:43</span>
+                    <span class="datetime" data-updated="Sun Apr 13 2025 08:53:58 GMT+0800">2025-04-13 08:53:58</span>
                 </span>
             
         
@@ -322,17 +322,17 @@
                     
                          <h1 id="应用开发工程师任务书"><a class="markdownIt-Anchor" href="#应用开发工程师任务书"></a> 应用开发工程师任务书</h1>
 <h2 id="任务目标"><a class="markdownIt-Anchor" href="#任务目标"></a> 任务目标</h2>
-<p>完成捐赠系统核心功能开发，实现区块链集成、用户认证及管理模块扩展</p>
+<p>完成捐赠系统核心功能开发，实现区块链集成（区块链链接）、用户认证及管理模块扩展  (区块链测试)</p>
 <hr />
 <h2 id="版本迭代计划"><a class="markdownIt-Anchor" href="#版本迭代计划"></a> 版本迭代计划</h2>
 <h3 id="10版本核心任务"><a class="markdownIt-Anchor" href="#10版本核心任务"></a> 1.0版本核心任务</h3>
-<h4 id="基础功能开发"><a class="markdownIt-Anchor" href="#基础功能开发"></a> 基础功能开发</h4>
+<h4 id="任务一基础功能开发"><a class="markdownIt-Anchor" href="#任务一基础功能开发"></a> 任务一:基础功能开发</h4>
 <ul>
 <li>实现用户注册/登录页面（Vue3+ElementPlus）<br />
 ▸ 路由配置：<code>/login</code> -&gt; Login.vue组件<br />
 ▸ 集成区块链密码哈希存储接口</li>
 </ul>
-<h4 id="区块链集成"><a class="markdownIt-Anchor" href="#区块链集成"></a> 区块链集成</h4>
+<h4 id="任务二区块链集成"><a class="markdownIt-Anchor" href="#任务二区块链集成"></a> 任务二:区块链集成</h4>
 <ol>
 <li>
 <p><strong>连接测试</strong></p>
@@ -349,27 +349,29 @@
 </ul>
 </li>
 </ol>
-<h4 id="系统联调"><a class="markdownIt-Anchor" href="#系统联调"></a> 系统联调</h4>
+<h4 id="任务三系统联调"><a class="markdownIt-Anchor" href="#任务三系统联调"></a> 任务三:系统联调</h4>
 <ul>
 <li>验证区块高度随交易增长（需智能合约工程师协同确认）</li>
 <li>输出功能测试报告（含n组用户注册/登录测试案例）</li>
 </ul>
 <hr />
 <h3 id="20版本扩展需求"><a class="markdownIt-Anchor" href="#20版本扩展需求"></a> 2.0版本扩展需求</h3>
-<h4 id="用户反馈系统"><a class="markdownIt-Anchor" href="#用户反馈系统"></a> 用户反馈系统</h4>
 <ul>
 <li>
-<p>开发用户反馈模块</p>
+<p>任务一:开发用户反馈模块</p>
 <pre class="highlight"><code class="vue">&lt;!-- 路由配置 --&gt;
 /manager/studentFeedback -&gt; StudentFeedback.vue
 
 </code></pre>
 </li>
 <li>
-<p>新增捐赠类型</p>
+<p>任务二:新增捐赠类型</p>
 </li>
 <li>
-<p>数据回溯测试</p>
+<p>任务三:数据回溯测试</p>
+</li>
+<li>
+<p>任务四:新增AI语音识别帮助回复功能,通过最新的开源大模型DeepseakR1-671B自行训练的蒸馏模型API进行对接(/deepseek/chat/{msg})。</p>
 </li>
 </ul>
 
