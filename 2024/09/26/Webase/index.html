@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个笔记小站啊">
+    <meta name="author" content="JoBackRer">
+    
+    <title>
+        
+            webase前置安装 |
+        
+        笔记小站
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"笔记小站","author":"JoBackRer","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories","links":"/links","about":"/about"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":true,"use":"valine","valine":{"appid":"1gsg5wnT8VSEiDNE5JNMyYwF-gzGzoHsz","appkey":"Bwev2K5LHQqHu4T65j5a5SNo","server_urls":"https://1gsg5wnt.lc-cn-n1-shared.com","placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="笔记小站" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               笔记小站
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/links">
+                                
+                                LINKS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/about">
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/links">
+                            
+                            LINKS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        webase前置安装
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">JoBackRer</span>
+                                
+                                    <span class="author-badge">Lv3</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-09-26 14:12:28</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Fri May 02 2025 17:06:33 GMT+0800">2025-05-02 17:06:33</span>
+                </span>
+            
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/ubuntu/">ubuntu</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="安装mysql"><a class="markdownIt-Anchor" href="#安装mysql"></a> 安装mysql</h1>
+<p>更新安装程序:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get upgrade</span><br></pre></td></tr></table></figure>
+<p>安装Mysql</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install mysql-server</span><br></pre></td></tr></table></figure>
+<p>开启mysql服务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service mysql start</span><br><span class="line">service mysql status</span><br><span class="line">netstat -tap | grep mysql</span><br></pre></td></tr></table></figure>
+<p>进入mysql界面</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+<p>解决中文乱码:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">character_set_server<span class="operator">=</span>utf<span class="number">-8</span></span><br><span class="line">#bind<span class="operator">-</span>address <span class="operator">=</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>  #设置远程访问</span><br></pre></td></tr></table></figure>
+<p>设置mysql密码:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql</span><br><span class="line">USE mysql;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line">EXIT;</span><br></pre></td></tr></table></figure>
+<p>创建新用户并授权本地访问,以及数据库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="keyword">with</span> <span class="keyword">grant</span> option;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">&#x27;test&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;test&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> <span class="keyword">with</span> <span class="keyword">grant</span> option;</span><br><span class="line">flush privileges;</span><br><span class="line"><span class="keyword">create</span> database webasenodemanager;</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+<h1 id="安装java"><a class="markdownIt-Anchor" href="#安装java"></a> 安装Java</h1>
+<p>安装JDK8</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install openjdk-8-jdk</span><br></pre></td></tr></table></figure>
+<p>验证安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+<p>配置环境变量-编辑配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which java</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+<p>加载配置</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+<p>验证输出</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$JAVA_HOME</span></span><br></pre></td></tr></table></figure>
+<h1 id="安装python"><a class="markdownIt-Anchor" href="#安装python"></a> 安装Python</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install python-is-python3</span><br></pre></td></tr></table></figure>
+<p>验证安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 --version</span><br></pre></td></tr></table></figure>
+<p>安装pip</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install python3-pip</span><br><span class="line">pip3 --version</span><br></pre></td></tr></table></figure>
+<p>设置环境变量</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>编辑配置文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PYTHON_HOME=/usr/bin/python3.8</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$PYTHON_HOME</span></span><br></pre></td></tr></table></figure>
+<p>加载配置文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>安装PyMySQL</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pymysql</span><br></pre></td></tr></table></figure>
+<p>验证安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 show pymysql</span><br></pre></td></tr></table></figure>
+<p>如若需要配置环境可以按照以下步骤，不用则跳过</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>编辑配置文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PYTHONPATH=<span class="variable">$PYTHONPATH</span>:/usr/local/lib/python3.8/dist-packages</span><br></pre></td></tr></table></figure>
+<p>加载配置</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<h1 id="webase的一些配置文件说明"><a class="markdownIt-Anchor" href="#webase的一些配置文件说明"></a> webase的一些配置文件说明</h1>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi common.properties</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"># WeBASE子系统的最新版本(v1.1.0或以上版本)</span><br><span class="line">webase.web.version=v1.5.2</span><br><span class="line">webase.mgr.version=v1.5.2</span><br><span class="line">webase.sign.version=v1.5.0</span><br><span class="line">webase.front.version=v1.5.2</span><br><span class="line"># 节点管理子系统mysql数据库配置</span><br><span class="line">mysql.ip=127.0.0.1</span><br><span class="line">mysql.port=3306</span><br><span class="line">mysql.user=dbUserame</span><br><span class="line">mysql.password=dbPassword</span><br><span class="line">mysql.database=webasenodemanager</span><br><span class="line"># 签名服务子系统mysql数据库配置</span><br><span class="line">sign.mysql.ip=localhost</span><br><span class="line">sign.mysq!.port=3306</span><br><span class="line">sign.mysq!.user=dbUsername</span><br><span class="line">sign.mysgl.password=dbPassword</span><br><span class="line">sign.mysql.database=webasesian</span><br><span class="line">#节点前置子系统h2数据库名和所属机构</span><br><span class="line">front.h2.name=webasefront</span><br><span class="line">front.org=fisco</span><br><span class="line"># WeBASE管理平台服务端口</span><br><span class="line">web.port=5000</span><br><span class="line">#启用移动端管理平台(0: disable,1: enable)</span><br><span class="line">web.h5.enable=1</span><br><span class="line"># 节点管理子系统服务端口</span><br><span class="line">mgr:port=5001</span><br><span class="line">#节点前置子系统端口</span><br><span class="line">front.port=5002</span><br><span class="line">#签名服务子系统端口</span><br><span class="line">sign.port=5004</span><br><span class="line"># 节点监听lp</span><br><span class="line">node.listenlp=127.0.0.1</span><br><span class="line"># 节点p2p端口</span><br><span class="line">node.p2pPort=30300</span><br><span class="line">#节点链上链下端口</span><br><span class="line">node.channelPort=20200</span><br><span class="line"># 节点rpc端口</span><br><span class="line">node.rpcPort=8545</span><br><span class="line"># 加密类型(0: ECDSA算法,1: 国密算法)</span><br><span class="line">encrypt.type=0</span><br><span class="line"># SSL连接加密类型(0: ECDSA SSL, 1:国密SSL)</span><br><span class="line"># 只有国密链才能使用国密</span><br><span class="line">SSLencrypt.ssl7ype=0</span><br><span class="line"># 是否使用已有的链(yes/no)</span><br><span class="line">if exist.fisco=no</span><br><span class="line"># 使用己有链时需配置</span><br><span class="line"># 已有链的路径，start al.sh脚本所在路径</span><br><span class="line">#路径下要存在sdk目录(sdk目录中包含了SSL所需的证书，即ca.crt、sdk.crt、sdk.key和gm目录(包含国密SSL证书gmca.crt、gmsdk.crt、gmsdk.key、gmensdk.crt和gmensdk.key)</span><br><span class="line">fisco.dir=/datalapp/nodes/127.0.0.1</span><br><span class="line"># 前置所连接节点的绝对路径#节点路径下要存在conf文件来，conf里存放节点证书(ca.crt、node.crt和node.key)</span><br><span class="line">node.dir=/datalapp/nodes/127.0.0.1/node0</span><br><span class="line"># 搭建新链时需配置</span><br><span class="line"># FISCO-BCOS版本fisco.version=2.7.2</span><br><span class="line"># 搭建节点个数(默认两个)</span><br><span class="line">node.counts=nodeCounts</span><br></pre></td></tr></table></figure>
+<p>运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#部署并启动所有服务：</span><br><span class="line">python3 deploy.py installAll</span><br><span class="line">#执行命令部署服务将自动部署FISCO BCOS节点，并部署 WeBASE 中间件服务，包括签名服务（sign）、节点前置（front）、节点管理服务（node-mgr）、节点管理前端（web）</span><br></pre></td></tr></table></figure>
+<p>详细命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 一键部署</span><br><span class="line">部署并启动所有服务       python3 deploy. py installAll</span><br><span class="line">停止一键部署的所有服务    python3 deploy.py  stopAll</span><br><span class="line">启动一键部署的所有服务    python3 deploy.py  startAll</span><br><span class="line">#各子服务启停</span><br><span class="line">启动FISCO-BCOS节点       python3 deploy.py startNode</span><br><span class="line">停止HSCO-BCOS节点        python3 deploy.py stopNode</span><br><span class="line">启动WeBASE-Web: python3 deploy.py startWeb</span><br><span class="line">停止WeBASE-Web: python3 deploy.py stopWeb</span><br><span class="line">启动WeBASE-Node-Manager: python3 deploy.py startManager</span><br><span class="line">停止WeBASE-Node-Manager: python3 deploy.py stopManager</span><br><span class="line">启动WeBASE-Sign: python3 deploy.py startSign</span><br><span class="line">停止WeBASE-Sign: python3 deploy.py stopSign</span><br><span class="line">启动WeBASE-Front: python3 deploy.py startFront</span><br><span class="line">停止WeBASE-Front: python3 deploy.py stopFront</span><br><span class="line"># 可视化部署</span><br><span class="line">部署并启动可视化部署的所有服务 python3 deploy.py installWeBASE</span><br><span class="line">停止可视化部署的所有服务 python3 deploy.py stopWeBASE</span><br><span class="line">启动可视化部署的所有服务 python3 deploy.py startWeBASE</span><br></pre></td></tr></table></figure>
+<p>检测操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#节点进程</span><br><span class="line">ps -ef | grep node</span><br><span class="line">#检查webase-front</span><br><span class="line">ps -ef | grep webase.front</span><br><span class="line">#检查webase-node-mannager</span><br><span class="line">ps -ef  | grep webase.node.mgr</span><br><span class="line">#检查nignx</span><br><span class="line">ps -ef | grep nginx</span><br><span class="line">#检查webase-sign</span><br><span class="line">ps -ef  | grep webase.sign</span><br><span class="line"></span><br><span class="line">#检查端口</span><br><span class="line">netstat -anlp | grep 20200 </span><br><span class="line">netstat -anlp | grep 5002</span><br><span class="line">netstat -anlp | grep 5001</span><br><span class="line">netstat -anlp | grep 5000</span><br><span class="line">netstat -anlp | grep 5004</span><br></pre></td></tr></table></figure>
+<p><strong>localhost:5002/WeBASE-Front 为节点控制台</strong></p>
+<p><strong><a class="link"   target="_blank" rel="noopener" href="http://localhost:5000" >http://localhost:5000<i class="fas fa-external-link-alt"></i></a> webase管理平台</strong></p>
+<h1 id="企业搭建webase"><a class="markdownIt-Anchor" href="#企业搭建webase"></a> 企业搭建webase</h1>
+<p>Webase-Front需要创建数据库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> webase_sign_tb <span class="keyword">DEFAULT</span> CHARSET utf8 <span class="keyword">COLLATE</span> utf8_general_ci;</span><br></pre></td></tr></table></figure>
+<p>Webase-Node-Manager需要创建数据库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> webase_node_mgr_tb <span class="keyword">DEFAULT</span> CHARSET utf8 <span class="keyword">COLLATE</span> utf8_general_ci;</span><br></pre></td></tr></table></figure>
+<p>在配置Front时需要将fisco-bcos的sdk密钥copy到dist/conf内</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r nodes/127.0.0.1/sdk/* ./dist/conf/</span><br></pre></td></tr></table></figure>
+<p>在配置Front中application.yml中的nodePath的路径需要配置到node0</p>
+<p>WeBASE-Node-Manager配置的时候需要先配置script/webase.sh文件都数据库进行配置，然后使用</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash webase.sh ip port  <span class="comment">#进行启动</span></span><br></pre></td></tr></table></figure>
+<p>Webase-Web配置需要先下载solc-bin:<code>bash ./get_solc_js.sj</code></p>
+<h1 id="generator"><a class="markdownIt-Anchor" href="#generator"></a> generator</h1>
+<h2 id="笔记"><a class="markdownIt-Anchor" href="#笔记"></a> 笔记</h2>
+<p>先从群组1开始搭建,搭建好后再将各个节点的密钥复制进去。</p>
+<p><code>./generator/script/install.sh</code>进行generator的安装。</p>
+<p><code>./generator --cdn --download_fisco ./meta</code>将fisco的二进制文件拷贝进来</p>
+<p><code>./one_click_generator.sh -b ./tmp_one_click</code>将配置好的机构进行生成</p>
+<p><code>tail -f ./tmp_one_click/agency*/node/node*/log/log* |grep g:x |grep +++ </code>查询状态</p>
+<p><code>./generator --download_console ./ --cdn</code>将控制台拷贝下来</p>
+<p><code>bash ./tmp_one_click/agencyx/node/node_xx_xx/scrpipts/load_new_groups.sh</code>生成新的群组</p>
+<p><code>./generator --generate_chain_certificate ./dir_chain_ca</code>生成链证书</p>
+<p>在生成第二个节点时:需要将生成第一个节点的ca文件拷贝过去即:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> tmp_one_click/ca.* tmp_one_click_expand/</span><br></pre></td></tr></table></figure>
+<p>以及群组1的创世区块,和p2p的连接文件<code>peers.txt</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> tmp_one_click/group.1.genesis tmp_one_click_expand</span><br><span class="line"><span class="built_in">cp</span> tmp_one_click/peers.txt tmp_one_click_expand</span><br></pre></td></tr></table></figure>
+<p>如果新增的节点是在已有的机构上新增的化，需要将已有机构的密钥拷贝过去.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r tmp_one_click/agencyA/agency_cert tmp_one_click_expand/agencyA</span><br></pre></td></tr></table></figure>
+<p>新增群组时，先要将对应的证书拷贝过来，比如机构A有两个节点，就需要将两个证书拷贝过来。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> tmp_one_click/agencyA/node/node_xxx_xx/conf/node.crt meta/cert_xxx_xx.crt</span><br></pre></td></tr></table></figure>
+<p>新增群组需要新增创世区块,并且将创世区块加入到现有节点中:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --create_group_genesis ./group2</span><br><span class="line">./generator --add_group ./group2/group.2.genesis ./tmp_one_click_expand/agencyx/node/node_xx_x</span><br></pre></td></tr></table></figure>
+<p>全部内容完成之后清理meta文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> ./meta/cert_*</span><br><span class="line"><span class="built_in">rm</span> ./meta/group*</span><br></pre></td></tr></table></figure>
+<h2 id="实操"><a class="markdownIt-Anchor" href="#实操"></a> 实操</h2>
+<p>前置要求:8节点4机构3群组</p>
+<p><img   src="https://i-blog.csdnimg.cn/blog_migrate/542a9057b81a2dc6540e7f497f397f9d.png"  alt="要求图" ></p>
+<table>
+<thead>
+<tr>
+<th>机构</th>
+<th>节点</th>
+<th>所属群组</th>
+<th>P2P地址</th>
+<th>RPC监听地址</th>
+<th>Channel监听地址</th>
+<th>IP地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机构A</td>
+<td>节点0</td>
+<td>群组1,2,3</td>
+<td>30300</td>
+<td>20200</td>
+<td>8545</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td></td>
+<td>节点1</td>
+<td>群组1,2,3</td>
+<td>30301</td>
+<td>20201</td>
+<td>8546</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>机构B</td>
+<td>节点2</td>
+<td>群组1,2</td>
+<td>30302</td>
+<td>20202</td>
+<td>8547</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td></td>
+<td>节点3</td>
+<td>群组1,2</td>
+<td>30303</td>
+<td>20203</td>
+<td>8548</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>机构C</td>
+<td>节点4</td>
+<td>群组2，4</td>
+<td>30304</td>
+<td>20204</td>
+<td>8549</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td></td>
+<td>节点5</td>
+<td>群组2，4</td>
+<td>30305</td>
+<td>20205</td>
+<td>8550</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>机构D</td>
+<td>节点6</td>
+<td>群组3</td>
+<td>30306</td>
+<td>20206</td>
+<td>8551</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td></td>
+<td>节点7</td>
+<td>群组3</td>
+<td>30307</td>
+<td>20207</td>
+<td>8552</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>机构F</td>
+<td>节点8</td>
+<td>群组4</td>
+<td>30308</td>
+<td>20208</td>
+<td>8553</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td></td>
+<td>节点9</td>
+<td>群组4</td>
+<td>30309</td>
+<td>20209</td>
+<td>8554</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td></td>
+<td>节点10</td>
+<td>群组4</td>
+<td>30310</td>
+<td>20210</td>
+<td>8555</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>机构E</td>
+<td>节点11</td>
+<td>群组1</td>
+<td>30311</td>
+<td>20211</td>
+<td>8556</td>
+<td>127.0.0.1</td>
+</tr>
+</tbody>
+</table>
+<p>由于是四个机构，所以复制四个目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r generator/ generator-A</span><br><span class="line"><span class="built_in">cp</span> -r generator/ generator-B</span><br><span class="line"><span class="built_in">cp</span> -r generator/ generator-C</span><br><span class="line"><span class="built_in">cp</span> -r generator/ generator-D</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> http://gitlab.rs.nlecloud.com/fisco/generator.git</span><br></pre></td></tr></table></figure>
+<h3 id="第一步生成链"><a class="markdownIt-Anchor" href="#第一步生成链"></a> 第一步生成链</h3>
+<p>一条链只有一条唯一的链证书<code>ca.crt</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_chain_certificate ./dir_chain_ca</span><br></pre></td></tr></table></figure>
+<p>然后生成各个机构的证书，并且复制到工作目录，以便于使用</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_agency_certificate ./dir_agency_ca ./dir_chain_ca agencyA</span><br><span class="line">./generator --generate_agency_certificate ./dir_agency_ca ./dir_chain_ca agencyB</span><br><span class="line">./generator --generate_agency_certificate ./dir_agency_ca ./dir_chain_ca agencyC</span><br><span class="line">./generator --generate_agency_certificate ./dir_agency_ca ./dir_chain_ca agencyD</span><br></pre></td></tr></table></figure>
+<p>将这些机构认证文件拷贝到各自目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp -r dir_agency_ca/agencyA/* ../generator-A/meta/</span><br><span class="line">cp -r dir_agency_ca/agencyB/* ../generator-B/meta/</span><br><span class="line">cp -r dir_agency_ca/agencyC/* ../generator-C/meta/</span><br><span class="line">cp -r dir_agency_ca/agencyD/* ../generator-D/meta/</span><br></pre></td></tr></table></figure>
+<h3 id="第二部编辑deployment并生成"><a class="markdownIt-Anchor" href="#第二部编辑deployment并生成"></a> 第二部编辑deployment并生成</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim generator-x/node_deployment.ini</span><br></pre></td></tr></table></figure>
+<p>对应的端口填写上。</p>
+<p>生成机构A，B的证书和p2p连接信息文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_all_certificates ./agencyA_node_info</span><br></pre></td></tr></table></figure>
+<p>将机构A的peers.txt连接信息文件拷贝给机构B 用于进行连接</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> agencyA_node_info/peers.txt ../generator-B/meta/peersA.txt</span><br></pre></td></tr></table></figure>
+<p><code>ps: 由于群组1 需要创建创世区块，我们选择在机构A里进行创建，所以我们机构B除了复制peers.txt文件外，还需要复制机构B的两个节点crt文件给机构A</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r  agencyB_node_info/peers.txt  ../generator-A/meta/peersB.txt</span><br><span class="line"><span class="built_in">cp</span> -r agencyB_node_info/cert_*  ../generator-A/meta/</span><br></pre></td></tr></table></figure>
+<p>在机构A结合四个节点证书文件生成创世区块,并将创世区块给b</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --create_group_genesis ./group</span><br><span class="line"><span class="built_in">cp</span> group/group.1.genesis  ../generator-B/meta/</span><br></pre></td></tr></table></figure>
+<p>在机构A中使用<code>--build_install_package</code>，第一个参数是放置群组内其他节点的连接信息，第二个是节点文件的输出目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --build_install_package ./meta/peerB.tst ./nodeA</span><br></pre></td></tr></table></figure>
+<p>同理生成B，不写了</p>
+<p>查询共识情况:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f ./node*/node*/log/log*  | grep g:2.*+++</span><br></pre></td></tr></table></figure>
+<h3 id="第三步群组2"><a class="markdownIt-Anchor" href="#第三步群组2"></a> 第三步群组2</h3>
+<p>编辑机构C的<code>conf/node_deployment.ini</code>配置文件，对应的端口编辑好,<code>group_id=2</code></p>
+<p>然后生成证书连接信息,并拷贝给A，以及将A的证书和连接信息拷贝到C</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_all_certificates ./agencyC_node_info</span><br><span class="line"><span class="built_in">cp</span> -r agencyC_node_info/peers.txt  ../generator-A/meta/peersC.txt</span><br><span class="line"><span class="built_in">cp</span> -r ../generator-A/agencyA_node_info/cert*  meta/</span><br><span class="line"><span class="built_in">cp</span> -r ../generator-A/agencyA_node_info/peers.txt  meta/peersA.txt</span><br></pre></td></tr></table></figure>
+<p>修改C的<code>conf/group_genesis.ini</code>将对应的端口写上并且将<code>group_id</code>改成2</p>
+<p>在机构C生成群组2的创世区块文件,并且拷贝到机构A</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --create_group_genesis ./group</span><br><span class="line"><span class="built_in">cp</span> -r group/group.2.genesis ../generator-A/meta/</span><br></pre></td></tr></table></figure>
+<p>生成机构C节点并且启动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --build_install_package ./meta/peersA.txt ./nodeC</span><br></pre></td></tr></table></figure>
+<p>机构A为现有节点初始化群组2</p>
+<p>使用<code>--add_group</code>第一个参数选择群组2的创世块,第二个参数选择需要加入的群组的节点目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --add_group ./meta/group.2.genesis ./nodeA</span><br></pre></td></tr></table></figure>
+<p>使用<code>--add_peers</code> ,添加机构C节点连接文件peers至已有节点</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --add_peers ./meta/peersC.txt ./nodeA</span><br></pre></td></tr></table></figure>
+<p>重启机构A</p>
+<p>查询A，C机构是否有共识</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f ./node*/node*/log/log* | grep g:2.+++</span><br></pre></td></tr></table></figure>
+<p>群组3搭建方法与2一致</p>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/ubuntu/">ubuntu</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2024/09/26/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%871/"
+                                   title="Ubuntu的疑难杂症"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Ubuntu的疑难杂症</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="valine-container">
+        <div id="vcomments"></div>
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script 
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initValine = () => {
+            const config = {
+              el: '#vcomments',
+              appId: '1gsg5wnT8VSEiDNE5JNMyYwF-gzGzoHsz',
+              appKey: 'Bwev2K5LHQqHu4T65j5a5SNo',
+              meta: ['nick', 'mail', 'link'],
+              avatar: 'wavatar',
+              enableQQ: true,
+              placeholder: '',
+              lang: 'en'.toLowerCase()
+            }
+
+            if ('https://1gsg5wnt.lc-cn-n1-shared.com') {
+              config.serverURLs = 'https://1gsg5wnt.lc-cn-n1-shared.com'
+            }
+
+            if (window?.Valine) {
+              new Valine(config)
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initValine()
+              }, 1000)
+            }
+          }
+
+          if ('false' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initValine()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initValine)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">JoBackRer</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+    
+<script src="//cdn.jsdelivr.net/npm/mermaid@7.1.2/dist/mermaid.min.js"></script>
+
+
+
+
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>

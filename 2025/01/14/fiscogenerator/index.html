@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个笔记小站啊">
+    <meta name="author" content="JoBackRer">
+    
+    <title>
+        
+            fisco-generator工具 |
+        
+        笔记小站
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"笔记小站","author":"JoBackRer","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories","links":"/links","about":"/about"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":true,"use":"valine","valine":{"appid":"1gsg5wnT8VSEiDNE5JNMyYwF-gzGzoHsz","appkey":"Bwev2K5LHQqHu4T65j5a5SNo","server_urls":"https://1gsg5wnt.lc-cn-n1-shared.com","placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="笔记小站" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               笔记小站
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/links">
+                                
+                                LINKS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/about">
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/links">
+                            
+                            LINKS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        fisco-generator工具
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">JoBackRer</span>
+                                
+                                    <span class="author-badge">Lv3</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-01-14 18:12:01</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Fri May 02 2025 17:06:33 GMT+0800">2025-05-02 17:06:33</span>
+                </span>
+            
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/fisco/">fisco</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="前置条件"><a class="markdownIt-Anchor" href="#前置条件"></a> 前置条件:</h1>
+<table>
+<thead>
+<tr>
+<th>机构</th>
+<th style="text-align:center">节点</th>
+<th>所属群组</th>
+<th>P2P地址</th>
+<th>RPC监听地址</th>
+<th>Channel监听地址</th>
+<th>IP地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机构A</td>
+<td style="text-align:center">节点0</td>
+<td>群组1,2</td>
+<td>30300</td>
+<td>20200</td>
+<td>8545</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">节点1</td>
+<td>群组1,2</td>
+<td>30301</td>
+<td>20201</td>
+<td>8546</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>机构B</td>
+<td style="text-align:center">节点2</td>
+<td>群组1</td>
+<td>30302</td>
+<td>20202</td>
+<td>8547</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">节点3</td>
+<td>群组1</td>
+<td>30303</td>
+<td>20203</td>
+<td>8548</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>机构C</td>
+<td style="text-align:center">节点4</td>
+<td>群组2</td>
+<td>30304</td>
+<td>20204</td>
+<td>8549</td>
+<td>127.0.0.1</td>
+</tr>
+</tbody>
+</table>
+<p>下载工具Generator</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/FISCO-BCOS/generator.git <span class="comment">#使用这个</span></span><br></pre></td></tr></table></figure>
+<p>切进目录并进行安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> generator/</span><br><span class="line">./scripts/install.sh</span><br><span class="line"><span class="comment"># 测试是否安装成功</span></span><br><span class="line">./generator -h </span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/14/URS4lqVJjimCO8E.png"  alt="image.png" ></p>
+<p>下载并解压二进制文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/BackRe/resource.git</span><br><span class="line">tar -zxvf ./resource/fisco-bcos.tar.gz -C ./meta</span><br></pre></td></tr></table></figure>
+<p>查看fisco版本信息</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./meta/fisco-bcos -v</span><br></pre></td></tr></table></figure>
+<h1 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h1>
+<p>根据前置条件中可以看到需求是ABCD机构所以要将当前的文件复制成ABCD四份。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r generator/ generator-a</span><br><span class="line"><span class="built_in">cp</span> -r generator/ generator-b</span><br><span class="line"><span class="built_in">cp</span> -r generator/ generator-c</span><br><span class="line"><span class="built_in">cp</span> -r generator/ generator-d</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/14/8zHqkDAj1rblKg6.png"  alt="image.png" ></p>
+<p>生成区块链的唯一密钥证书(在generator目录下生成)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_chain_certificate ./dir_chain_ca</span><br></pre></td></tr></table></figure>
+<p><code>--generate_chain_certificate</code>生成区块链唯一的密钥相当于之前搭建中nodes/127.0.0.1/sdk内的内容</p>
+<p><code>./dir_chain_ca</code>生成的文件名称</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预输出效果如下</span></span><br><span class="line">root@backrer-virtual-machine:~/fisco/generator# ./generator --generate_chain_certificate ./dir_chain_ca</span><br><span class="line">INFO |  Chain cert begin.</span><br><span class="line">INFO |  Generate root cert success, <span class="built_in">dir</span> is /root/fisco/generator/dir_chain_ca</span><br><span class="line">INFO |  Chain cert end.</span><br></pre></td></tr></table></figure>
+<p>然后生成各个机构的证书及密钥,并复制到指定的机构目录下的meta中</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_agency_certificate ./dir_agency_ca ./dir_chain_ca agencya</span><br><span class="line">./generator --generate_agency_certificate ./dir_agency_ca ./dir_chain_ca agencyb</span><br><span class="line"><span class="built_in">cp</span> -r ./dir_agency_ca/agencya/* ../generator-a/meta/</span><br><span class="line"><span class="built_in">cp</span> -r ./dir_agency_ca/agencyb/* ../generator-b/meta/</span><br></pre></td></tr></table></figure>
+<p><code>--generate_agency_certificate</code>生成机构的密钥</p>
+<p><code>./dir_agency_ca</code>生成的文件位置</p>
+<p><code>./dir_chain_ca</code>区块链的唯一密钥</p>
+<p><code>agencyxx</code>机构名称</p>
+<h1 id="机构ab的生成和群组1"><a class="markdownIt-Anchor" href="#机构ab的生成和群组1"></a> 机构A,B的生成和群组1</h1>
+<h2 id="准备"><a class="markdownIt-Anchor" href="#准备"></a> 准备</h2>
+<p>切换到generator-a目录中，编辑conf/node_deployment.ini</p>
+<p>根据提供的ip端口进行对应的修改</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[group]</span><br><span class="line">group_id=1</span><br><span class="line"></span><br><span class="line">[node0]</span><br><span class="line">; Host IP <span class="keyword">for</span> the communication among peers.</span><br><span class="line">; Please use your ssh login IP.</span><br><span class="line">p2p_ip=127.0.0.1</span><br><span class="line">; Listening IP <span class="keyword">for</span> the communication between SDK clients.</span><br><span class="line">; This IP is the same as p2p_ip <span class="keyword">for</span> the physical host.</span><br><span class="line">; But <span class="keyword">for</span> virtual host e.g., VPS servers, it is usually different from p2p_ip.</span><br><span class="line">; You can check accessible addresses of your network card.</span><br><span class="line">; Please see https://tecadmin.net/check-ip-address-ubuntu-18-04-desktop/</span><br><span class="line">; <span class="keyword">for</span> more instructions.</span><br><span class="line">rpc_ip=127.0.0.1</span><br><span class="line">channel_ip=0.0.0.0</span><br><span class="line">p2p_listen_port=30300</span><br><span class="line">channel_listen_port=20200</span><br><span class="line">jsonrpc_listen_port=8545</span><br><span class="line"></span><br><span class="line">[node1]</span><br><span class="line">p2p_ip=127.0.0.1</span><br><span class="line">rpc_ip=127.0.0.1</span><br><span class="line">channel_ip=0.0.0.0</span><br><span class="line">p2p_listen_port=30301</span><br><span class="line">channel_listen_port=20201</span><br><span class="line">jsonrpc_listen_port=8546</span><br></pre></td></tr></table></figure>
+<p>同理切换到generator-b,编辑conf/node_deployment.ini</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[group]</span><br><span class="line">group_id=1</span><br><span class="line"></span><br><span class="line">[node0]</span><br><span class="line">; Host IP <span class="keyword">for</span> the communication among peers.</span><br><span class="line">; Please use your ssh login IP.</span><br><span class="line">p2p_ip=127.0.0.1</span><br><span class="line">; Listening IP <span class="keyword">for</span> the communication between SDK clients.</span><br><span class="line">; This IP is the same as p2p_ip <span class="keyword">for</span> the physical host.</span><br><span class="line">; But <span class="keyword">for</span> virtual host e.g., VPS servers, it is usually different from p2p_ip.</span><br><span class="line">; You can check accessible addresses of your network card.</span><br><span class="line">; Please see https://tecadmin.net/check-ip-address-ubuntu-18-04-desktop/</span><br><span class="line">; <span class="keyword">for</span> more instructions.</span><br><span class="line">rpc_ip=127.0.0.1</span><br><span class="line">channel_ip=0.0.0.0</span><br><span class="line">p2p_listen_port=30302</span><br><span class="line">channel_listen_port=20202</span><br><span class="line">jsonrpc_listen_port=8547</span><br><span class="line"></span><br><span class="line">[node1]</span><br><span class="line">p2p_ip=127.0.0.1</span><br><span class="line">rpc_ip=127.0.0.1</span><br><span class="line">channel_ip=0.0.0.0</span><br><span class="line">p2p_listen_port=30303</span><br><span class="line">channel_listen_port=20203</span><br><span class="line">jsonrpc_listen_port=8548</span><br></pre></td></tr></table></figure>
+<p>生成机构A的节点证书和p2p连接信息文件(切换到generator-a)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_all_certificates ./agencya_node_info</span><br><span class="line">ll agencya_node_info</span><br></pre></td></tr></table></figure>
+<p>将p2p连接信息文件复制到agency-b中</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> agencya_node_info/peers.txt  ../generator-b/meta/peersa.txt</span><br></pre></td></tr></table></figure>
+<p>同理生成机构B的节点证书和p2p连接信息文件(切换到generator-b)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_all_certificates ./agencyb_node_info</span><br></pre></td></tr></table></figure>
+<p>将p2p连接信息文件复制到agency-a中</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> agencyb_node_info/peers.txt  ../generator-a/meta/peersb.txt</span><br></pre></td></tr></table></figure>
+<p>这里要注意一点，由于目前是要生成群组1所以群组需要创世区块，我们要将机构机构B中的两个cert文件拷贝到机构A的meta中。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r agencyb_node_info/cert_*  ../generator-a/meta/</span><br></pre></td></tr></table></figure>
+<p>切换到机构A中并编辑文件<code>conf/group_genesis.ini</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../generator-a/</span><br><span class="line">vim conf/group_genesis.ini</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[group]</span><br><span class="line">group_id=1</span><br><span class="line"></span><br><span class="line">[nodes]</span><br><span class="line">node0=127.0.0.1:30300</span><br><span class="line">node1=127.0.0.1:30301</span><br><span class="line">node2=127.0.0.1:30302</span><br><span class="line">node3=127.0.0.1:30303</span><br></pre></td></tr></table></figure>
+<p><code>group_id</code>群组号</p>
+<p>根据前置要求表中配置好node的ip以及端口</p>
+<p>结合四个节点证书生成创世块.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --create_group_genesis ./group</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@backrer-virtual-machine:~/fisco/generator-a# ./generator --create_group_genesis ./group</span><br><span class="line">INFO |  Build operation begin.</span><br><span class="line">INFO | generate ./group/group.1.genesis, successful</span><br><span class="line">INFO |  Build operation end.</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/14/DYLCIBvdsoxkSO9.png"  alt="image.png" ></p>
+<p>将<code>group.1.genesis</code>文件复制到机构B中</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> group/group.1.genesis  ../generator-b/meta/</span><br></pre></td></tr></table></figure>
+<h2 id="生成机构a"><a class="markdownIt-Anchor" href="#生成机构a"></a> 生成机构A</h2>
+<p>在generator-a文件下</p>
+<p>使用<code>--build_install_package</code>生成机构的所有节点。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --build_install_package ./meta/peersb.txt ./nodea</span><br><span class="line">ll ./nodea</span><br></pre></td></tr></table></figure>
+<p><code>./meta/peersB.txt</code>放置群组内其他节点的连接信息</p>
+<p><code>./nodeA</code>节点文件的输出目录</p>
+<p>启动机构A的两个节点</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bash nodea/start_all.sh</span><br><span class="line"><span class="comment"># 查询启动状态</span></span><br><span class="line">ps -ef | grep fisco</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/14/INfzacL68JdSmHW.png"  alt="image.png" ></p>
+<h2 id="生成机构b"><a class="markdownIt-Anchor" href="#生成机构b"></a> 生成机构B</h2>
+<p>切换到机构B</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../generator-b</span><br></pre></td></tr></table></figure>
+<p>生成机构B,并且启动</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./generator --build_install_package ./meta/peersa.txt ./nodeb</span><br><span class="line">bash nodeb/start_all.sh</span><br><span class="line"><span class="comment"># 查询启动状态</span></span><br><span class="line">ps -ef | grep fisco</span><br></pre></td></tr></table></figure>
+<p>查看群组1的共识情况</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f ./node*/node*/log/log*  | grep +++</span><br></pre></td></tr></table></figure>
+<h1 id="机构c的生成与群组2"><a class="markdownIt-Anchor" href="#机构c的生成与群组2"></a> 机构C的生成与群组2</h1>
+<p>切到机构C,编辑文件<code>conf/node_deployment.ini</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../generator-c</span><br><span class="line">vim conf/node_deployment.ini</span><br></pre></td></tr></table></figure>
+<p>根据前置要求设置好对应的端口，以及群组id</p>
+<p>这里就不展示修改后的文档了。</p>
+<p>生成机构C的节点证书和p2p连接信息，并将连接信息拷贝给机构A</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_all_certificates ./agencyc_node_info</span><br><span class="line"><span class="built_in">cp</span> -r agencyc_node_info/peers.txt  ../generator-a/meta/peersc.txt</span><br></pre></td></tr></table></figure>
+<p>在这里由于我们需要生成群组2，又因为机构A也在群组2中，所以我们要将机构A的连接信息和cert文件拷贝给机构C以便于生成创世区块。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r ../generator-a/agencya_node_info/cert*  meta/</span><br><span class="line"><span class="built_in">cp</span> -r ../generator-a/agencya_node_info/peers.txt  meta/peersa.txt</span><br></pre></td></tr></table></figure>
+<p>编辑机构C的<code>conf/group_genesis.ini</code>文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[group]</span><br><span class="line">group_id=2</span><br><span class="line"></span><br><span class="line">[nodes]</span><br><span class="line">node0=127.0.0.1:30300</span><br><span class="line">node1=127.0.0.1:30301</span><br><span class="line">node2=127.0.0.1:30301</span><br><span class="line">node3=127.0.0.1:30305</span><br></pre></td></tr></table></figure>
+<p>生成群组2的创世块文件,并将创世区块拷贝给机构A</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --create_group_genesis ./group</span><br><span class="line"><span class="built_in">cp</span> -r group/group.2.genesis ../generator-a/meta/</span><br></pre></td></tr></table></figure>
+<p>生成机构C并启动</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./generator --build_install_package ./meta/peersa.txt ./nodec</span><br><span class="line">bash nodec/start_all.sh</span><br><span class="line">ps -ef | grep fisco</span><br></pre></td></tr></table></figure>
+<p>现在将机构A添加到群组2中(切到机构A)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../generator-a</span><br><span class="line">./generator --add_group ./meta/group.2.genesis ./nodea</span><br></pre></td></tr></table></figure>
+<p><code>./meta/group.2.genesis</code>群组2的创世块</p>
+<p><code>./nodea</code>需要加入群组的节点目录</p>
+<p>使机构A连接机构C</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --add_peers ./meta/peersc.txt ./nodea</span><br></pre></td></tr></table></figure>
+<p><code>./meta/peersc.txt</code>连接信息文件</p>
+<p><code>./nodea</code>要连接的节点</p>
+<p>重新启动机构A，并查询机群组2是否有共识存在</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bash nodea/stop_all.sh</span><br><span class="line">bash nodea/start_all.sh</span><br><span class="line"><span class="comment"># 查询群组2共识情况</span></span><br><span class="line"><span class="built_in">tail</span> -f ./node*/node*/log/log*  | grep g:2.*+++</span><br></pre></td></tr></table></figure>
+<h1 id="机构d的生成与群组3的创建"><a class="markdownIt-Anchor" href="#机构d的生成与群组3的创建"></a> 机构D的生成与群组3的创建</h1>
+<p>方法与上方类似</p>
+<p>切换到generator-d,并编辑文件<code>conf/node_deployment.ini</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../generator-c</span><br><span class="line">vim conf/node_deployment.ini</span><br></pre></td></tr></table></figure>
+<p>由于这里是三个节点所有在配置文件时要多配置一个节点</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">[group]</span><br><span class="line">group_id=3</span><br><span class="line"></span><br><span class="line">[node0]</span><br><span class="line">; Host IP <span class="keyword">for</span> the communication among peers.</span><br><span class="line">; Please use your ssh login IP.</span><br><span class="line">p2p_ip=127.0.0.1</span><br><span class="line">; Listening IP <span class="keyword">for</span> the communication between SDK clients.</span><br><span class="line">; This IP is the same as p2p_ip <span class="keyword">for</span> the physical host.</span><br><span class="line">; But <span class="keyword">for</span> virtual host e.g., VPS servers, it is usually different from p2p_ip.</span><br><span class="line">; You can check accessible addresses of your network card.</span><br><span class="line">; Please see https://tecadmin.net/check-ip-address-ubuntu-18-04-desktop/</span><br><span class="line">; <span class="keyword">for</span> more instructions.</span><br><span class="line">rpc_ip=127.0.0.1</span><br><span class="line">channel_ip=0.0.0.0</span><br><span class="line">p2p_listen_port=30306</span><br><span class="line">channel_listen_port=20206</span><br><span class="line">jsonrpc_listen_port=8551</span><br><span class="line"></span><br><span class="line">[node1]</span><br><span class="line">p2p_ip=127.0.0.1</span><br><span class="line">rpc_ip=127.0.0.1</span><br><span class="line">channel_ip=0.0.0.0</span><br><span class="line">p2p_listen_port=30307</span><br><span class="line">channel_listen_port=20207</span><br><span class="line">jsonrpc_listen_port=8552</span><br><span class="line"></span><br><span class="line">[node2]</span><br><span class="line">p2p_ip=127.0.0.1</span><br><span class="line">rpc_ip=127.0.0.1</span><br><span class="line">channel_ip=0.0.0.0</span><br><span class="line">p2p_listen_port=30308</span><br><span class="line">channel_listen_port=20208</span><br><span class="line">jsonrpc_listen_port=8553</span><br></pre></td></tr></table></figure>
+<p>生成机构D的节点证书和p2p连接信息文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_all_certificates ./agencyd_node_info</span><br></pre></td></tr></table></figure>
+<p>将连接信息拷贝给机构A</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r agencyd_node_info/peers.txt ../generator-a/meta/peersd.txt</span><br></pre></td></tr></table></figure>
+<p>将A的信息拷贝给D用于创建创世区块</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r ../generator-a/agencya_node_info/peers.txt meta/peersa.txt</span><br><span class="line"><span class="built_in">cp</span> -r ../generator-a/agencya_node_info/cert*  meta/</span><br></pre></td></tr></table></figure>
+<p>配置<code>group_genesis.ini</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[group]</span><br><span class="line">group_id=3</span><br><span class="line"></span><br><span class="line">[nodes]</span><br><span class="line">node0=127.0.0.1:30300</span><br><span class="line">node1=127.0.0.1:30301</span><br><span class="line">node2=127.0.0.1:30306</span><br><span class="line">node3=127.0.0.1:30307</span><br><span class="line">node3=127.0.0.1:30308</span><br></pre></td></tr></table></figure>
+<p>创建群组3创世区块，并将文件拷给机构A</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --create_group_genesis ./group</span><br><span class="line"><span class="built_in">cp</span> -r group/group.3.genesis ../generator-a/meta/</span><br></pre></td></tr></table></figure>
+<p>生成机构D节点并启动</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --build_install_package ./meta/peersa.txt ./noded</span><br><span class="line">bash noded/start_all.sh</span><br></pre></td></tr></table></figure>
+<p>切换机构A中，将群组3的初始化以及连接机构D</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --add_group ./meta/group.3.genesis ./nodea/</span><br><span class="line">./generator --add_peers ./meta/peersd.txt ./nodea/</span><br></pre></td></tr></table></figure>
+<p>重启机构A,并且查看共识</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bash nodea/stop_all.sh</span><br><span class="line">bash nodea/start_all.sh</span><br><span class="line"><span class="built_in">tail</span> -f ./node*/node*/log/log*  | grep g:3.*+++</span><br></pre></td></tr></table></figure>
+<h1 id="机构e同理"><a class="markdownIt-Anchor" href="#机构e同理"></a> 机构E同理</h1>
+<p>自行完成</p>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/fisco/">fisco</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2025/03/15/fisco-generator2/"
+                                   title="fisco-generator2"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">fisco-generator2</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2025/01/08/webase-front/"
+                                   title="webase-front搭建方法"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">webase-front搭建方法</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="valine-container">
+        <div id="vcomments"></div>
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script 
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initValine = () => {
+            const config = {
+              el: '#vcomments',
+              appId: '1gsg5wnT8VSEiDNE5JNMyYwF-gzGzoHsz',
+              appKey: 'Bwev2K5LHQqHu4T65j5a5SNo',
+              meta: ['nick', 'mail', 'link'],
+              avatar: 'wavatar',
+              enableQQ: true,
+              placeholder: '',
+              lang: 'en'.toLowerCase()
+            }
+
+            if ('https://1gsg5wnt.lc-cn-n1-shared.com') {
+              config.serverURLs = 'https://1gsg5wnt.lc-cn-n1-shared.com'
+            }
+
+            if (window?.Valine) {
+              new Valine(config)
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initValine()
+              }, 1000)
+            }
+          }
+
+          if ('false' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initValine()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initValine)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">JoBackRer</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+    
+<script src="//cdn.jsdelivr.net/npm/mermaid@7.1.2/dist/mermaid.min.js"></script>
+
+
+
+
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>

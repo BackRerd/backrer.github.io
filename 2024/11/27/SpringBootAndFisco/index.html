@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个笔记小站啊">
+    <meta name="author" content="JoBackRer">
+    
+    <title>
+        
+            SpringBoot连接fisco |
+        
+        笔记小站
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"笔记小站","author":"JoBackRer","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories","links":"/links","about":"/about"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":true,"use":"valine","valine":{"appid":"1gsg5wnT8VSEiDNE5JNMyYwF-gzGzoHsz","appkey":"Bwev2K5LHQqHu4T65j5a5SNo","server_urls":"https://1gsg5wnt.lc-cn-n1-shared.com","placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="笔记小站" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               笔记小站
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/links">
+                                
+                                LINKS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/about">
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/links">
+                            
+                            LINKS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        SpringBoot连接fisco
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">JoBackRer</span>
+                                
+                                    <span class="author-badge">Lv3</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-11-27 13:57:19</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Fri May 02 2025 17:06:33 GMT+0800">2025-05-02 17:06:33</span>
+                </span>
+            
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Java/">Java</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/SpringBoot/">SpringBoot</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Fisco/">Fisco</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="前置条件"><a class="markdownIt-Anchor" href="#前置条件"></a> 前置条件</h1>
+<ul>
+<li>SpringBoot3</li>
+<li>Fisco3</li>
+<li>SpringWeb</li>
+</ul>
+<h1 id="1fisco区块链网络"><a class="markdownIt-Anchor" href="#1fisco区块链网络"></a> 1.Fisco区块链网络</h1>
+<p>搭建过程略过。</p>
+<p>在控制台文件中~/console/输入命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash contract2java.sh solidity -s contracts/solidity/HelloWorld.sol -p site.backrer.fiscotest.hello.contract</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>contracts/solidity/HelloWorld.sol</code>目标合约</li>
+<li><code>site.backrer.fiscotest.hello.contract</code>编译后的Java包名，和自己的对应好就可以</li>
+</ul>
+<h1 id="2导入springboot"><a class="markdownIt-Anchor" href="#2导入springboot"></a> 2.导入SpringBoot</h1>
+<h2 id="导入所需要的依赖"><a class="markdownIt-Anchor" href="#导入所需要的依赖"></a> 导入所需要的依赖</h2>
+<p>maven:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.fisco-bcos.java-sdk<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fisco-bcos-java-sdk<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.6.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="创建toml文件配置fisco"><a class="markdownIt-Anchor" href="#创建toml文件配置fisco"></a> 创建toml文件配置fisco</h2>
+<p><code>config-fisco.toml</code>这是我的命名方式，配置文件信息</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[cryptoMaterial]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">certPath</span> = <span class="string">&quot;conf&quot;</span>                           <span class="comment"># The certification path</span></span><br><span class="line"><span class="attr">useSMCrypto</span> = <span class="string">&quot;false&quot;</span></span><br><span class="line"><span class="attr">enableSsl</span> = <span class="string">&quot;true&quot;</span>                        <span class="comment"># Communication with nodes without SSL</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The following configurations take the certPath by default if commented</span></span><br><span class="line"><span class="attr">caCert</span> = <span class="string">&quot;conf/ca.crt&quot;</span>                    <span class="comment"># CA cert file path</span></span><br><span class="line"><span class="attr">sslCert</span> = <span class="string">&quot;conf/sdk.crt&quot;</span>                  <span class="comment"># SSL cert file path</span></span><br><span class="line"><span class="attr">sslKey</span> = <span class="string">&quot;conf/sdk.key&quot;</span>                   <span class="comment"># SSL key file path</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The following configurations take the sm certPath by default if commented</span></span><br><span class="line"><span class="comment"># caCert = &quot;conf/sm_ca.crt&quot;                    # SM CA cert file path</span></span><br><span class="line"><span class="comment"># sslCert = &quot;conf/sm_sdk.crt&quot;                  # SM SSL cert file path</span></span><br><span class="line"><span class="comment"># sslKey = &quot;conf/sm_sdk.key&quot;                    # SM SSL key file path</span></span><br><span class="line"><span class="comment"># enSslCert = &quot;conf/sm_ensdk.crt&quot;               # SM encryption cert file path</span></span><br><span class="line"><span class="comment"># enSslKey = &quot;conf/sm_ensdk.key&quot;                # SM ssl cert file path</span></span><br><span class="line"></span><br><span class="line"><span class="section">[network]</span></span><br><span class="line"><span class="attr">messageTimeout</span> = <span class="string">&quot;10000&quot;</span></span><br><span class="line"><span class="attr">defaultGroup</span> = <span class="string">&quot;group0&quot;</span></span><br><span class="line"><span class="attr">peers</span>=[<span class="string">&quot;192.168.133.130:20201&quot;</span>]    <span class="comment"># The peer list to connect</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">[account]</span></span><br><span class="line"><span class="attr">keyStoreDir</span> = <span class="string">&quot;account&quot;</span>         <span class="comment"># The directory to load/store the account file, default is &quot;account&quot;</span></span><br><span class="line"><span class="comment"># accountFilePath = &quot;&quot;          # The account file path (default load from the path specified by the keyStoreDir)</span></span><br><span class="line"><span class="attr">accountFileFormat</span> = <span class="string">&quot;pem&quot;</span>       <span class="comment"># The storage format of account file (Default is &quot;pem&quot;, &quot;p12&quot; as an option)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># accountAddress = &quot;&quot;           # The transactions sending account address</span></span><br><span class="line"><span class="comment"># Default is a randomly generated account</span></span><br><span class="line"><span class="comment"># The randomly generated account is stored in the path specified by the keyStoreDir</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># password = &quot;&quot;                 # The password used to load the account file</span></span><br><span class="line"></span><br><span class="line"><span class="section">[threadPool]</span></span><br><span class="line"><span class="attr">threadPoolSize</span> = <span class="string">&quot;16&quot;</span>         <span class="comment"># The size of the thread pool to process message callback</span></span><br><span class="line"><span class="comment"># Default is the number of cpu cores</span></span><br></pre></td></tr></table></figure>
+<p><code>cryptoMaterial</code>配置密钥和证书的所在位置，提前将密钥和证书导入到项目中resources文件下</p>
+<p>正常密钥和证书位置在fisco文件下<code>nodes/127.0.0.1/sdk</code>中。</p>
+<p><code>network</code>配置详细</p>
+<ul>
+<li><code>messageTimeout</code>最大连接时间tick</li>
+<li><code>defaultGroup</code>默认第一个连接的群组</li>
+<li><code>peers</code>连接的节点ip，可配置多个</li>
+</ul>
+<h1 id="3连接"><a class="markdownIt-Anchor" href="#3连接"></a> 3.连接</h1>
+<p>在任意类中新建静态方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">configFile</span> <span class="operator">=</span>BcosSDKTest.class.getClassLoader().getResource(<span class="string">&quot;config-fisco.toml&quot;</span>).getPath();</span><br></pre></td></tr></table></figure>
+<p><code>config-fisco.toml</code>其中的文件名称填写自己的文件名称</p>
+<p><code>BcosSDKTest</code>是当前类的名称</p>
+<p>这样springboot和fisco连接就算完成了。</p>
+<h1 id="4测试"><a class="markdownIt-Anchor" href="#4测试"></a> 4.测试</h1>
+<p>在这里做个测试,获取块的高度，以及调用HelloWorld合约中的get和set方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController()</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/fisco&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">BcosSDK</span> <span class="variable">sdk</span> <span class="operator">=</span>  BcosSDK.build(BcosSDKTest.configFile);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">Client</span> <span class="variable">client</span> <span class="operator">=</span> sdk.getClient(<span class="string">&quot;group0&quot;</span>);</span><br><span class="line">    <span class="keyword">private</span> HelloWorld helloWorld;</span><br><span class="line">    <span class="comment">//通过getAddress获取的地址</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">address</span> <span class="operator">=</span> <span class="string">&quot;0x745d4de0cf93b7d1db8dd8892daf05ac745766ce&quot;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//部署HelloWorld合约</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/deploy&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">initSDK</span><span class="params">()</span> <span class="keyword">throws</span> ContractException &#123;</span><br><span class="line">        <span class="comment">// 向群组1部署HelloWorld合约</span></span><br><span class="line">        <span class="type">CryptoKeyPair</span> <span class="variable">cryptoKeyPair</span> <span class="operator">=</span> client.getCryptoSuite().getCryptoKeyPair();</span><br><span class="line">        helloWorld = HelloWorld.deploy(client,cryptoKeyPair);</span><br><span class="line">        System.out.println(<span class="string">&quot;-----deploy HelloWorld ok------&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取HelloWorld合约的地址以便于以后不用每次都部署</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/getAddress&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getAddress</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> helloWorld.getContractAddress();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//读取合约地址</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/read&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">readHell</span><span class="params">()</span> &#123;</span><br><span class="line">        helloWorld = HelloWorld.load(address,client,client.getCryptoSuite().getCryptoKeyPair());</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;ok&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取区块链高度</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/getBlockNumber&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getBlockNumber</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;-----getBlockNumber------&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(client == <span class="literal">null</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;-----init BcosSDK failed------&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;-----init BcosSDK failed----&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">BlockNumber</span> <span class="variable">blockNumber</span> <span class="operator">=</span> client.getBlockNumber();</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;block number is : &quot;</span> + blockNumber.getBlockNumber().toString();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//调用HelloWorld合约中的get方法</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/get&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getHelloWorld</span><span class="params">()</span> <span class="keyword">throws</span> ContractException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;-----getHelloworld------&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(helloWorld == <span class="literal">null</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;-----init BcosSDK failed------&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;-----init BcosSDK failed----&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">String</span> <span class="variable">getValue</span> <span class="operator">=</span> helloWorld.get();</span><br><span class="line">        System.out.println(<span class="string">&quot;-----call HelloWorld get success------:&quot;</span> + getValue);</span><br><span class="line">        <span class="keyword">return</span> getValue;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//调用HelloWorld合约中的set方法</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/set&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">setHelloWorld</span><span class="params">(<span class="meta">@RequestParam(value = &quot;val&quot;,required = false,defaultValue = &quot;default val&quot;)</span>String val)</span> <span class="keyword">throws</span> ContractException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;-----setHelloworld------&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(helloWorld == <span class="literal">null</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;-----init BcosSDK failed------&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;-----init BcosSDK failed----&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">TransactionReceipt</span> <span class="variable">receipt</span> <span class="operator">=</span> helloWorld.set(val);</span><br><span class="line">        System.out.println(<span class="string">&quot;-----call HelloWorld get success------:&quot;</span> + receipt.getMessage());</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;setHelloworld success&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Java/">Java</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/SpringBoot/">SpringBoot</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Fisco/">Fisco</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2024/12/24/%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%BD%AE%E6%90%AD%E5%BB%BA/"
+                                   title="前后端分离式部署"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">前后端分离式部署</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/11/19/xxjh/"
+                                   title="编程学习计划"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">编程学习计划</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="valine-container">
+        <div id="vcomments"></div>
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script 
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initValine = () => {
+            const config = {
+              el: '#vcomments',
+              appId: '1gsg5wnT8VSEiDNE5JNMyYwF-gzGzoHsz',
+              appKey: 'Bwev2K5LHQqHu4T65j5a5SNo',
+              meta: ['nick', 'mail', 'link'],
+              avatar: 'wavatar',
+              enableQQ: true,
+              placeholder: '',
+              lang: 'en'.toLowerCase()
+            }
+
+            if ('https://1gsg5wnt.lc-cn-n1-shared.com') {
+              config.serverURLs = 'https://1gsg5wnt.lc-cn-n1-shared.com'
+            }
+
+            if (window?.Valine) {
+              new Valine(config)
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initValine()
+              }, 1000)
+            }
+          }
+
+          if ('false' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initValine()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initValine)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">JoBackRer</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+    
+<script src="//cdn.jsdelivr.net/npm/mermaid@7.1.2/dist/mermaid.min.js"></script>
+
+
+
+
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>

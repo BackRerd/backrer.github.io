@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个笔记小站啊">
+    <meta name="author" content="JoBackRer">
+    
+    <title>
+        
+            fisco之多群组多节点 |
+        
+        笔记小站
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"笔记小站","author":"JoBackRer","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories","links":"/links","about":"/about"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":true,"use":"valine","valine":{"appid":"1gsg5wnT8VSEiDNE5JNMyYwF-gzGzoHsz","appkey":"Bwev2K5LHQqHu4T65j5a5SNo","server_urls":"https://1gsg5wnt.lc-cn-n1-shared.com","placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="笔记小站" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               笔记小站
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/links">
+                                
+                                LINKS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/about">
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/links">
+                            
+                            LINKS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        fisco之多群组多节点
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">JoBackRer</span>
+                                
+                                    <span class="author-badge">Lv3</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-01-05 09:57:07</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Fri May 02 2025 17:06:33 GMT+0800">2025-05-02 17:06:33</span>
+                </span>
+            
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/fisco/">fisco</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="搭建一个4机构3群组8节点"><a class="markdownIt-Anchor" href="#搭建一个4机构3群组8节点"></a> 搭建一个4机构3群组8节点</h1>
+<p>此篇章是以官方为基础搭建的</p>
+<p>前置需求:</p>
+<table>
+<thead>
+<tr>
+<th>机构</th>
+<th>群组</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机构A(2节点) node0,1</td>
+<td>群组1,2,3</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>机构B(2节点) node2,3</td>
+<td>群组1</td>
+<td></td>
+</tr>
+<tr>
+<td>机构C(2节点) node4,5</td>
+<td>群组2</td>
+<td></td>
+</tr>
+<tr>
+<td>机构D(2节点) node6,7</td>
+<td>群组3</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>先将构建fisco的脚本下载下来</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -#LO https://github.com/FISCO-BCOS/FISCO-BCOS/releases/download/v2.11.0/build_chain.sh &amp;&amp; <span class="built_in">chmod</span> u+x build_chain.sh</span><br></pre></td></tr></table></figure>
+<p>创建一个配置文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ipconf</span><br></pre></td></tr></table></figure>
+<p>配置文件内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:2 A 1,2,3</span><br><span class="line">127.0.0.1:2 B 1</span><br><span class="line">127.0.0.1:2 C 2</span><br><span class="line">127.0.0.1:2 D 3</span><br></pre></td></tr></table></figure>
+<p>文件结构详解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IP:节点数量 机构名称 所在群组</span><br><span class="line">.... .... ....</span><br></pre></td></tr></table></figure>
+<p>使用命令一键创建</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash build_chain.sh -f ipconf -p 30300,20200,8545</span><br></pre></td></tr></table></figure>
+<p><code>-f</code>指定一个文件，这个文件编写的内容是创建信息</p>
+<p><img   src="https://s2.loli.net/2025/01/05/YEODv4SphVk2JAc.png"  alt="image.png" ></p>
+<p>启动所有节点</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash nodes/127.0.0.1/start_all.sh </span><br></pre></td></tr></table></figure>
+<p>查看节点进程</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep fisco-bcos</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/05/lS6kxMGV8BcyIL1.png"  alt="image.png" ></p>
+<p>查看所有群组的共识</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f nodes/127.0.0.1/node0/log/* | grep <span class="string">&quot;g.*++&quot;</span></span><br></pre></td></tr></table></figure>
+<p>查看单个群组共识</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f nodes/127.0.0.1/node0/log/* | grep <span class="string">&quot;g:1.*++&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>g:int</code>将int改成所要查询的群组</p>
+<p><code>node0</code>将node0也可以改成其他节点，查看其他节点的群组是否正常或者存在</p>
+<p><img   src="https://s2.loli.net/2025/01/05/4Df8x7nU3VWNvEs.png"  alt="image.png" ></p>
+<h1 id="扩容节点"><a class="markdownIt-Anchor" href="#扩容节点"></a> 扩容节点</h1>
+<h2 id="前置要求"><a class="markdownIt-Anchor" href="#前置要求"></a> 前置要求:</h2>
+<table>
+<thead>
+<tr>
+<th>节点</th>
+<th>群组</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机构D(1节点)</td>
+<td>3群组</td>
+<td>127.0.01</td>
+</tr>
+</tbody>
+</table>
+<p>获取证书的生成脚本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -#LO https://raw.githubusercontent.com/FISCO-BCOS/FISCO-BCOS/master-2.0/tools/gen_node_cert.sh</span><br></pre></td></tr></table></figure>
+<p>下载失败使用这个:<code>curl -#LO https://gitee.com/FISCO-BCOS/FISCO-BCOS/raw/master-2.0/tools/gen_node_cert.sh</code></p>
+<p>为新节点生成密钥</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash gen_node_cert.sh -c nodes/cert/D/ -o node8</span><br></pre></td></tr></table></figure>
+<p><code>-c</code>指定要在哪个机构下新增节点</p>
+<p><code>-o</code>新的节点名称</p>
+<p><img   src="https://s2.loli.net/2025/01/05/XlxrMCcSdJGh2jN.png"  alt="image.png" ></p>
+<p>拷贝所需要的配置文件(由于这里是在机构D新增的节点所以拷贝节点6和节点7都可以)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> nodes/127.0.0.1/node7/config.ini nodes/127.0.0.1/node7/start.sh nodes/127.0.0.1/node7/stop.sh node8/</span><br></pre></td></tr></table></figure>
+<p>这里是将配置文件启动文件都拷贝了过去</p>
+<p>编辑node8的配置文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim node8/config.ini</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[rpc]</span><br><span class="line">    channel_listen_ip=0.0.0.0</span><br><span class="line">    channel_listen_port=20208</span><br><span class="line">    jsonrpc_listen_ip=127.0.0.1</span><br><span class="line">    jsonrpc_listen_port=8553</span><br><span class="line">    disable_dynamic_group=<span class="literal">false</span></span><br><span class="line">[p2p]</span><br><span class="line">    listen_ip=0.0.0.0</span><br><span class="line">    listen_port=30308</span><br><span class="line">    ; nodes to connect</span><br><span class="line">    node.0=127.0.0.1:30300</span><br><span class="line">    node.1=127.0.0.1:30301</span><br><span class="line">    node.2=127.0.0.1:30302</span><br><span class="line">    node.3=127.0.0.1:30303</span><br><span class="line">    node.4=127.0.0.1:30304</span><br><span class="line">    node.5=127.0.0.1:30305</span><br><span class="line">    node.6=127.0.0.1:30306</span><br><span class="line">    node.7=127.0.0.1:30307</span><br><span class="line">    node.8=127.0.0.1:30308</span><br></pre></td></tr></table></figure>
+<p><code>p2p</code>加入自身的信息</p>
+<p><code>listen_port</code>端口自增一下，我这里拷贝的是node7所有自增一下就可以，如果拷贝的node6那就需要自增两下</p>
+<p><code>channel_listen_port</code>同上</p>
+<p><code>jsonrpc_listen_port</code>同上</p>
+<p>将群组的连接信息和配置文件拷贝进去</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> nodes/127.0.0.1/node7/conf/group.3.genesis nodes/127.0.0.1/node7/conf/group.3.ini node8/</span><br></pre></td></tr></table></figure>
+<p>先将新节点复制到当前的nodes文件下,然后启动节点</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r node8/ nodes/127.0.0.1/</span><br><span class="line">bash node8/start.sh</span><br></pre></td></tr></table></figure>
+<p>查看节点连接</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f nodes/127.0.0.1/node8/log/log*  | grep <span class="string">&quot;connected count&quot;</span></span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/05/RQMWcnpedYHg8K4.png"  alt="image.png" ></p>
+<h2 id="将节点添加到群组中"><a class="markdownIt-Anchor" href="#将节点添加到群组中"></a> 将节点添加到群组中</h2>
+<p>查看节点nodeid</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> nodes/127.0.0.1/node8/conf/node.nodeid</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/05/oLuTIpXvUgq27Mj.png"  alt="image.png" ></p>
+<p>进入控制台3群组</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash console/start.sh 3</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/05/7GorkeIRwU6EBFz.png"  alt="image.png" ></p>
+<p><code>addObserver</code>观察节,不参与共识，但能实时同步链上数据的节点。</p>
+<p><code>addSealer</code>共识节,参与共识的节点，拥有群组的所有数据（搭链时默认都生成共识节点）。</p>
+<p>这里需要共识所有添加到共识节点内</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addSealer 替换成自己节点的nodeid</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/05/kZaorvQ8DXe3WgI.png"  alt="image.png" ></p>
+<h1 id="新增群组"><a class="markdownIt-Anchor" href="#新增群组"></a> 新增群组</h1>
+<h2 id="前置需求"><a class="markdownIt-Anchor" href="#前置需求"></a> 前置需求</h2>
+<p>将node8节点添加至新增的群组中</p>
+<hr />
+<p>获取时间戳</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> $(($(date &#x27;+%s&#x27;)*<span class="number">1000</span>))</span><br></pre></td></tr></table></figure>
+<p>将时间戳记下来后开启控制台</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash console/start.sh</span><br></pre></td></tr></table></figure>
+<p>查看节点IP与Post端口号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getAvailableConnections</span><br></pre></td></tr></table></figure>
+<p>获取节点nodeid</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getSealerList</span><br></pre></td></tr></table></figure>
+<p>选择第一个nodeid</p>
+<p>为节点动态创建一个新群组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">generateGroup 127.0.0.1:20200 4 1736048077000 8b77bf44e79b207fcefe2d350ee4d9af0f45ef9425a7ce12cc61f6c87effc00c24dbbe5aa874179b9800584906b54b79a0f88ccda9f76c2b91058807a23985cf</span><br></pre></td></tr></table></figure>
+<p>命令详解: generateGroup 获取的IP和Post端口 新群组id 时间戳 节点nodei</p>
+<p><img   src="https://s2.loli.net/2025/01/05/Xxi4rWE936Rhngl.png"  alt="image.png" ></p>
+<p>启动新群组,切换新群组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">startGroup 127.0.0.1:20200 4</span><br><span class="line">switch 4</span><br></pre></td></tr></table></figure>
+<p>将node8节点添加到新群组中</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> nodes/127.0.0.1/node8/conf/node.nodeid <span class="comment">#获取节点id</span></span><br><span class="line">addSealer 8b77bf44e79b207fcefe2d350ee4d9af0f45ef9425a7ce12cc61f6c87effc00c24dbbe5aa874179b9800584906b54b79a0f88ccda9f76c2b91058807a23985cf</span><br></pre></td></tr></table></figure>
+<p><img   src="https://s2.loli.net/2025/01/05/NEBevq6bY8lXGtK.png"  alt="image.png" ></p>
+<h1 id="结尾"><a class="markdownIt-Anchor" href="#结尾"></a> 结尾</h1>
+<p>小作业:</p>
+<p>1.创建四机构三群组10节点的区块链，详细要求如下:</p>
+<table>
+<thead>
+<tr>
+<th>机构</th>
+<th>群组</th>
+<th>节点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机构A(3节点)</td>
+<td>1,2,3</td>
+<td>node0,1,2</td>
+</tr>
+<tr>
+<td>机构B(1节点)</td>
+<td>1</td>
+<td>node3</td>
+</tr>
+<tr>
+<td>机构C(4节点)</td>
+<td>2</td>
+<td>node4,5,6,7</td>
+</tr>
+<tr>
+<td>机构D(2节点)</td>
+<td>1,3</td>
+<td>node8,9</td>
+</tr>
+</tbody>
+</table>
+<p>2.新增节点node10,node11,node12详细要求如下:</p>
+<table>
+<thead>
+<tr>
+<th>机构</th>
+<th>群组</th>
+<th>节点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机构A</td>
+<td>3</td>
+<td>node11</td>
+</tr>
+<tr>
+<td>机构B</td>
+<td>1</td>
+<td>node10,12</td>
+</tr>
+</tbody>
+</table>
+<p>3.新增群组4,并将node10,node11,node12添加至其中</p>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/fisco/">fisco</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2025/01/08/webase-front/"
+                                   title="webase-front搭建方法"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">webase-front搭建方法</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/12/24/%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%BD%AE%E6%90%AD%E5%BB%BA/"
+                                   title="前后端分离式部署"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">前后端分离式部署</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="valine-container">
+        <div id="vcomments"></div>
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script 
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initValine = () => {
+            const config = {
+              el: '#vcomments',
+              appId: '1gsg5wnT8VSEiDNE5JNMyYwF-gzGzoHsz',
+              appKey: 'Bwev2K5LHQqHu4T65j5a5SNo',
+              meta: ['nick', 'mail', 'link'],
+              avatar: 'wavatar',
+              enableQQ: true,
+              placeholder: '',
+              lang: 'en'.toLowerCase()
+            }
+
+            if ('https://1gsg5wnt.lc-cn-n1-shared.com') {
+              config.serverURLs = 'https://1gsg5wnt.lc-cn-n1-shared.com'
+            }
+
+            if (window?.Valine) {
+              new Valine(config)
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initValine()
+              }, 1000)
+            }
+          }
+
+          if ('false' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initValine()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initValine)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">JoBackRer</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+    
+<script src="//cdn.jsdelivr.net/npm/mermaid@7.1.2/dist/mermaid.min.js"></script>
+
+
+
+
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>
