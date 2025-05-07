@@ -284,7 +284,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Fri May 02 2025 17:06:33 GMT+0800">2025-05-02 17:06:33</span>
+                    <span class="datetime" data-updated="Wed May 07 2025 08:54:04 GMT+0800">2025-05-07 08:54:04</span>
                 </span>
             
         
@@ -320,7 +320,7 @@
                     
 
                     
-                         <p>所有人介绍项目以及口号，项目经理下发任务到运维工程师。已经向运维工程师下发了，任务书请查收。</p>
+                         <p>使用Fisco+Webase工具，完成多机构联盟链网络搭建，部署Webase可视化平台，确保节点跨群组互通与智能合约部署环境就绪</p>
 <table>
 <thead>
 <tr>
@@ -381,78 +381,60 @@
 </tr>
 </tbody>
 </table>
-<p>根据项目经理下发的任务书，我们来完成区块链部署的工作。</p>
-<p>1.从我们的服务器上下载区块链搭建工具(generator):</p>
+<p>根据项目经理下发的任务书，我首先来完成区块链网络的搭建，为接下来整个项目的分布式账本以及用户管理链做好准备。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/FISCO-BCOS/generator.git</span><br><span class="line"><span class="built_in">cd</span> ./generator</span><br></pre></td></tr></table></figure>
-<p>2.因为网络问题工具已经提前构建完成，所有我们先测试一下工具是否能使用。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator -h</span><br></pre></td></tr></table></figure>
-<p>3.根据上面显示的信息，可以知道工具可以正常使用。接下来我们需要完成区块链搭建的重要部分，获取区块链所使用的二进制文件。</p>
+<p>这里由于项目的兼容性，我首先要获取对应版本的二进制文件，确定好区块链网络的版本。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/BackRe/resource.git</span><br></pre></td></tr></table></figure>
-<p>在获取完成后，需要将二进制文件解压到<code>./meta</code>目录下。meta目录相当于一个缓存文件，几乎所有的信息文件都会放在这里。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf ./resource/fisco-bcos.tar.gz -C ./meta</span><br></pre></td></tr></table></figure>
-<p>解压完成后，查询一下二进制文件的版本信息。</p>
+<p>获取之后查询一下版本信息，这里使用的Fisco2.x的版本，这个版本对项目的兼容性较好。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./meta/fisco-bcos -v</span><br></pre></td></tr></table></figure>
-<p>看到版本信息后代表文件正常解压成功。</p>
-<p>4.我们需要将工具文件复制成a,b机构，为后续的智能合约做准备。</p>
+<p>对于我们初期的项目，暂时使用两个机构即可。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cp</span> -r ./generator a</span><br><span class="line"><span class="built_in">cp</span> -r ./generator b</span><br><span class="line"><span class="built_in">cd</span> ./generator</span><br></pre></td></tr></table></figure>
-<p>5.在复制完成之后，需要生成机构的唯一密钥和证书。</p>
+<p>由于安全性，我们的整体项目需要一条唯一的一串密钥。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_chain_certificate ./chain_ca</span><br></pre></td></tr></table></figure>
-<p>看到<code>Generate root cert success,dir is /root/fisco/generator/dir_chain_ca</code>信息，机构的<code>唯一</code>密钥生成完毕,并且知道密钥生成在<code>/root/fisco/generator/dir_chain_ca</code>。</p>
-<p>6.通过唯一密钥，我们需要生成各个机构的密钥。</p>
+<p>然后根据我们的唯一密钥，去分发各个机构的密钥。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_agency_certificate ./agency_ca ./chain_ca agencya</span><br><span class="line">./generator --generate_agency_certificate ./agency_ca ./chain_ca agencyb</span><br></pre></td></tr></table></figure>
-<p>将当前生成的各个机构密钥，复制到各个机构目录下。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r ./agency_ca/agencya/* ../a/meta/</span><br><span class="line"><span class="built_in">cp</span> -r ./agency_ca/agencyb/* ../b/meta/</span><br></pre></td></tr></table></figure>
-<p>生成sdk连接密钥证书</p>
+<p>我们的整体项目需要与其他语言进行对接，所有我要提前准备好SDK连接密钥，便于其他语言的对接。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_sdk_certificate ./sdk_ca_a ./agency_ca/agencya/</span><br><span class="line">./generator --generate_sdk_certificate ./sdk_ca_b ./agency_ca/agencyb/</span><br></pre></td></tr></table></figure>
-<p>同理,将当前生成的各个机构sdk，复制到各个机构目录下</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r sdk_ca_a/ ../a/</span><br><span class="line"><span class="built_in">cp</span> -r sdk_ca_b/ ../b/</span><br></pre></td></tr></table></figure>
-<p>7.接下来需要配置各个机构下的文件。</p>
+<p>以上我生成好了整个区块链中的所有密钥，现在我要开始进行区块链的初始化文件配置。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../a</span><br><span class="line">vim conf/node_deployment.ini</span><br></pre></td></tr></table></figure>
-<p>为机构a配置两个节点和对应的端口。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改以下信息</span></span><br><span class="line">p2p_listen_port=30300</span><br><span class="line">channel_listen_port=20200</span><br><span class="line">jsonrpc_listen_port=8545</span><br></pre></td></tr></table></figure>
-<p>b同理。</p>
+<p>我们项目对端口没有硬性的要求，所以在这里我只需要对端口进行自增一位数即可。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../b</span><br><span class="line">vim conf/node_deployment.ini</span><br></pre></td></tr></table></figure>
-<p>修改b的对应配置信息。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改以下信息</span></span><br><span class="line">p2p_listen_port=30302</span><br><span class="line">channel_listen_port=20202</span><br><span class="line">jsonrpc_listen_port=8547</span><br><span class="line"></span><br><span class="line">p2p_listen_port=30303</span><br><span class="line">channel_listen_port=20203</span><br><span class="line">jsonrpc_listen_port=8548</span><br></pre></td></tr></table></figure>
-<p>8.生成机构A的节点信息和p2p连接信息</p>
+<p>初始化配置完成后，我需要将两个机构进行连接，否则无法实现分布式分发，所以我现在将两个机构的连接信息文件创建出来。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../a</span><br><span class="line">./generator --generate_all_certificates ./node_info</span><br></pre></td></tr></table></figure>
-<p>显示xxx信息表示节点信息和p2p连接信息生成成功。</p>
-<p>将机构a <code>p2p</code>文件复制到机构b的<code>meta</code>目录下。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../b</span><br><span class="line"><span class="built_in">cp</span> ../a/node_info/peers.txt ./meta/peersa.txt</span><br></pre></td></tr></table></figure>
-<p>同理将生成机构b的节点信息和p2p文件，然后再复制到机构a中。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generator --generate_all_certificates ./node_info</span><br><span class="line"><span class="built_in">cp</span> ./node_info/peers.txt ../a/meta/peersb.txt</span><br></pre></td></tr></table></figure>
-<p>将机构b的节点信息复制到机构a的<code>meta</code>目录下。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> ./node_info/cert_* ../a/meta/</span><br></pre></td></tr></table></figure>
-<p>切回机构a中，配置群组文件。</p>
+<p>由于我们项目采取的是多群组模式，所以现在需要将对应的群组信息初始化出来。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../a</span><br><span class="line">vim ./conf/group_genesis.ini</span><br></pre></td></tr></table></figure>
-<p>根据文档配置对应的节点信息。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[group]</span><br><span class="line">group_id=1</span><br><span class="line"></span><br><span class="line">[nodes]</span><br><span class="line">node0=127.0.0.1:30300</span><br><span class="line">node1=127.0.0.1:30301</span><br><span class="line">node2=127.0.0.1:30302</span><br><span class="line">node3=127.0.0.1:30303</span><br></pre></td></tr></table></figure>
-<p>生成区块链中的第一个区块。</p>
+<p>目前为止区块链的初始化和密钥已经生成创建完成。</p>
+<p>由于区块链是以链条的形式存在，每一个块都会继承上一个块的信息，但目前我的区块链网络是空的，所以我需要创建出第一个区块，并分发给各个机构。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --create_group_genesis ./group</span><br></pre></td></tr></table></figure>
 <p>看到<code>generate ./group/group.1.genesis, successful</code>信息表示生成成功。</p>
-<p>将第一个区块复制到机构b中</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r ./group/group.1.genesis ../b/meta/</span><br></pre></td></tr></table></figure>
-<p>9.现在生成机构a的节点。</p>
+<p>第一个区块存在后，我将开始着手构建机构A链。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generator --build_install_package ./meta/peersb.txt ./nodea</span><br></pre></td></tr></table></figure>
-<p>看到<code>Build operation end</code>表示节点生成完毕。</p>
+<p>看到<code>Build operation end</code>表示机构A生成完毕。</p>
 <p>启动机构a的所有节点,并查询启动状态</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash ./nodea/start_all.sh</span><br><span class="line">ps -ef | grep fisco</span><br></pre></td></tr></table></figure>
 <p>看到以下有节点信息，代表启动正常。</p>
 <p><img   src="https://s2.loli.net/2025/03/16/ZEheYOJPksFplvH.png"  alt="image.png" ></p>
-<p>同理生成机构b的节点,并启动查看。</p>
+<p>同理生成机构b链,并启动查看。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../b</span><br><span class="line">./generator --build_install_package ./meta/peersa.txt ./nodeb</span><br><span class="line">bash ./nodeb/start_all.sh</span><br><span class="line">ps -ef | grep fisco</span><br></pre></td></tr></table></figure>
-<p>看到以下节点信息，代表所有节点已经启动成功。</p>
+<p>看到以下节点信息，代表所有节点已经启动成功。以上我已完成了整个项目的区块链搭建。</p>
 <p><img   src="https://s2.loli.net/2025/03/16/DF5R6fXMKVdhygA.png"  alt="image.png" ></p>
-<p>10.以上区块链搭建完成，但还需要可视化界面。</p>
+<p>由于智能合约编写时需要可视化界面，以及更好的数据监控，我将部署Webase平台。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span></span><br><span class="line">git <span class="built_in">clone</span> https://gitee.com/BackRe/webase.git <span class="comment">#现在群里下</span></span><br></pre></td></tr></table></figure>
-<p>进入到webase目录中</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ./webase</span><br></pre></td></tr></table></figure>
-<p>部署</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 deploy.py installAll</span><br></pre></td></tr></table></figure>
-<p>输出信息中如若包含re-download的都是选择n，其他的都是y</p>
-<p>启动</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 deploy.py startAll</span><br></pre></td></tr></table></figure>
-<p>查询ip地址</p>
+<p>到此，我的工作以完成，我将查询我的IP以便于其他人的连接。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
 <p><img   src="https://s2.loli.net/2025/03/16/pjxWRJ2Fcesiar3.png"  alt="image.png" ></p>
 <p>(在ens33下，其中inet后面的地址就是ip地址。没有/24。最后的ip是:你的ip:5000)</p>
