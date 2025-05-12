@@ -284,7 +284,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Wed May 07 2025 09:10:19 GMT+0800">2025-05-07 09:10:19</span>
+                    <span class="datetime" data-updated="Mon May 12 2025 17:49:42 GMT+0800">2025-05-12 17:49:42</span>
                 </span>
             
         
@@ -322,21 +322,23 @@
                     
                          <p>项目经理下达任务书。</p>
 <p>收到，根据项目经理经理下达的任务书我将使用Soliolidity完成区块链智能合约开发、JavaSDK部署及前后端联调，实现用户密码哈希化安全存储与验证功能</p>
-<p>1.根据运维工程师部署的可视化界面，我将完成智能合约编写，为整个项目的账本分发，用户管理等做自动化处理。</p>
+<p>根据运维工程师部署的可视化界面，我将完成智能合约编写，为整个项目的账本分发，用户管理等做自动化处理。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:5000/  <span class="comment">#webase界面，ip根据实际情况修改</span></span><br></pre></td></tr></table></figure>
-<p>2.智能合约代码编写</p>
+<p>首先进行任务一，智能合约代码编写</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.25;</span><br><span class="line"></span><br><span class="line">// 用户存储合约</span><br><span class="line">contract UserStorage &#123;</span><br><span class="line">    // 用户结构体，表示用户的信息</span><br><span class="line">    struct User &#123;</span><br><span class="line">        bytes32 passwordHash; </span><br><span class="line">        bool exists; </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 使用映射存储用户名对应的用户信息</span><br><span class="line">    mapping(string =&gt; User) private users;</span><br><span class="line">    </span><br><span class="line">    //创建出自动化注册方法，注册时候自动对密码进行哈希加密，并自动分发到区块链中</span><br><span class="line">    function storePassword(string _username, string _password) public &#123;</span><br><span class="line">        require(!users[_username].exists, &quot;User already registered.&quot;); // 确保用户未注册</span><br><span class="line">        users[_username] = User(keccak256(abi.encodePacked(_password)), true); // 存储哈希密码</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //创建对用户密码的验证，在密码输入时，对密码自动哈希处理，对比密码是否正确。</span><br><span class="line">    function verifyPassword(string _username, string _password) public view returns (bool) &#123;</span><br><span class="line">        require(users[_username].exists, &quot;User not registered.&quot;); // 确保用户已注册</span><br><span class="line">        return users[_username].passwordHash == keccak256(abi.encodePacked(_password)); // 校验密码哈希值</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.由于在后续需要区块链中的委员用户等管理，所以我将初始化一下控制台，并且连接一下区块链网络。</p>
+<p>合约编写完成，保存并编译，合约编译成功。部署合约，合约部署成功。</p>
+<p>接下来进行任务二，区块链环境配置</p>
+<p>由于在后续需要区块链中的委员用户等管理，所以我将初始化一下控制台，并且连接一下区块链网络。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span></span><br><span class="line"><span class="built_in">cd</span> ./generator</span><br><span class="line">tar -zxvf ./resource/console.tar.gz -C ./</span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> ./sdk_ca_a/sdk/* ./console/conf/</span><br><span class="line"><span class="built_in">cp</span> -r ./console/conf/config-example.toml ./console/conf/config.toml</span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./console/start.sh</span><br></pre></td></tr></table></figure>
-<p>控制台正常启动后，我需要测试一下是否能正常使用，所以我将测试一下委员账户的添加与管理。</p>
+<p>控制台正常启动后，我需要测试一下是否能正常使用，所以我将进行任务三，委员账号的添加与管理。</p>
 <p>(正常操作委员部分)</p>
 <p>…</p>
+<p>最后完成任务四，系统联调</p>
 <p>智能合约自动化部署需要与其他语言进行连接，所以我需要生成对应语言的SDK代码创建。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ./console</span><br><span class="line">bash sol2java.sh -p site.backrer.fisco</span><br></pre></td></tr></table></figure>
-<p>(PPT里面的结束话语)</p>
-<p>我现将连接信息交给项目经理。</p>
+<p>我负责智能合约的开发与部署，完成了合约源码、部署日志、Java适配代码及测试报告的交付，同时发现了密码算法单一、标识管理混乱及路径配置不一致等问题。</p>
 
                     
                 </div>
